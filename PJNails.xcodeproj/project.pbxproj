@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A3758EB1DEECCCC001FCEE4 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3758D21DEECCCC001FCEE4 /* AFHTTPSessionManager.m */; };
+		6A3758EC1DEECCCC001FCEE4 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3758D51DEECCCC001FCEE4 /* AFNetworkReachabilityManager.m */; };
+		6A3758ED1DEECCCC001FCEE4 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3758D71DEECCCC001FCEE4 /* AFSecurityPolicy.m */; };
+		6A3758EE1DEECCCC001FCEE4 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3758D91DEECCCC001FCEE4 /* AFURLRequestSerialization.m */; };
+		6A3758EF1DEECCCC001FCEE4 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3758DB1DEECCCC001FCEE4 /* AFURLResponseSerialization.m */; };
+		6A3758F01DEECCCC001FCEE4 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3758DD1DEECCCC001FCEE4 /* AFURLSessionManager.m */; };
+		6A3758F11DEECCCC001FCEE4 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3758E01DEECCCC001FCEE4 /* NSMutableArray+SWUtilityButtons.m */; };
+		6A3758F21DEECCCC001FCEE4 /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3758E21DEECCCC001FCEE4 /* SWCellScrollView.m */; };
+		6A3758F31DEECCCC001FCEE4 /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3758E41DEECCCC001FCEE4 /* SWLongPressGestureRecognizer.m */; };
+		6A3758F41DEECCCC001FCEE4 /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3758E61DEECCCC001FCEE4 /* SWTableViewCell.m */; };
+		6A3758F51DEECCCC001FCEE4 /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3758E81DEECCCC001FCEE4 /* SWUtilityButtonTapGestureRecognizer.m */; };
+		6A3758F61DEECCCC001FCEE4 /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3758EA1DEECCCC001FCEE4 /* SWUtilityButtonView.m */; };
 		A2972AC41CDAE729004051D1 /* CustomerRegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2972AC31CDAE729004051D1 /* CustomerRegisterController.m */; };
 		A2972AC81CDB2CCA004051D1 /* CustomerAppointmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2972AC71CDB2CCA004051D1 /* CustomerAppointmentController.m */; };
 		A2CB06961CD1B968000F66A8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CB068B1CD1B968000F66A8 /* AppDelegate.m */; };
@@ -24,12 +36,6 @@
 		A2CB06BF1CD1ECA6000F66A8 /* user-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A2CB06BE1CD1ECA5000F66A8 /* user-icon.png */; };
 		A2CB06D61CD1F0E2000F66A8 /* CustomerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CB06D51CD1F0E2000F66A8 /* CustomerListCell.m */; };
 		A2CB06D91CD1F753000F66A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2CB06D81CD1F753000F66A8 /* UIKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		A2CB06E91CD1F926000F66A8 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CB06DE1CD1F926000F66A8 /* NSMutableArray+SWUtilityButtons.m */; };
-		A2CB06EA1CD1F926000F66A8 /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CB06E01CD1F926000F66A8 /* SWCellScrollView.m */; };
-		A2CB06EB1CD1F926000F66A8 /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CB06E21CD1F926000F66A8 /* SWLongPressGestureRecognizer.m */; };
-		A2CB06EC1CD1F926000F66A8 /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CB06E41CD1F926000F66A8 /* SWTableViewCell.m */; };
-		A2CB06ED1CD1F926000F66A8 /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CB06E61CD1F926000F66A8 /* SWUtilityButtonTapGestureRecognizer.m */; };
-		A2CB06EE1CD1F926000F66A8 /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CB06E81CD1F926000F66A8 /* SWUtilityButtonView.m */; };
 		A2CB06F01CD1FF8F000F66A8 /* uncheck-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A2CB06EF1CD1FF8F000F66A8 /* uncheck-icon.png */; };
 		A2CE4B831CD0B06D00436DF1 /* PJNailsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CE4B821CD0B06D00436DF1 /* PJNailsTests.m */; };
 		A2CE4B8E1CD0B06D00436DF1 /* PJNailsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CE4B8D1CD0B06D00436DF1 /* PJNailsUITests.m */; };
@@ -53,6 +59,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A3758D11DEECCCC001FCEE4 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		6A3758D21DEECCCC001FCEE4 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		6A3758D31DEECCCC001FCEE4 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		6A3758D41DEECCCC001FCEE4 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		6A3758D51DEECCCC001FCEE4 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		6A3758D61DEECCCC001FCEE4 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		6A3758D71DEECCCC001FCEE4 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		6A3758D81DEECCCC001FCEE4 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		6A3758D91DEECCCC001FCEE4 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		6A3758DA1DEECCCC001FCEE4 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		6A3758DB1DEECCCC001FCEE4 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		6A3758DC1DEECCCC001FCEE4 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		6A3758DD1DEECCCC001FCEE4 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		6A3758DF1DEECCCC001FCEE4 /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
+		6A3758E01DEECCCC001FCEE4 /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
+		6A3758E11DEECCCC001FCEE4 /* SWCellScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCellScrollView.h; sourceTree = "<group>"; };
+		6A3758E21DEECCCC001FCEE4 /* SWCellScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCellScrollView.m; sourceTree = "<group>"; };
+		6A3758E31DEECCCC001FCEE4 /* SWLongPressGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLongPressGestureRecognizer.h; sourceTree = "<group>"; };
+		6A3758E41DEECCCC001FCEE4 /* SWLongPressGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLongPressGestureRecognizer.m; sourceTree = "<group>"; };
+		6A3758E51DEECCCC001FCEE4 /* SWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTableViewCell.h; sourceTree = "<group>"; };
+		6A3758E61DEECCCC001FCEE4 /* SWTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTableViewCell.m; sourceTree = "<group>"; };
+		6A3758E71DEECCCC001FCEE4 /* SWUtilityButtonTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonTapGestureRecognizer.h; sourceTree = "<group>"; };
+		6A3758E81DEECCCC001FCEE4 /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonTapGestureRecognizer.m; sourceTree = "<group>"; };
+		6A3758E91DEECCCC001FCEE4 /* SWUtilityButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonView.h; sourceTree = "<group>"; };
+		6A3758EA1DEECCCC001FCEE4 /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonView.m; sourceTree = "<group>"; };
 		A2972AC21CDAE729004051D1 /* CustomerRegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerRegisterController.h; sourceTree = "<group>"; };
 		A2972AC31CDAE729004051D1 /* CustomerRegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerRegisterController.m; sourceTree = "<group>"; };
 		A2972AC61CDB2CCA004051D1 /* CustomerAppointmentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerAppointmentController.h; sourceTree = "<group>"; };
@@ -77,18 +108,6 @@
 		A2CB06D41CD1F0E2000F66A8 /* CustomerListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerListCell.h; sourceTree = "<group>"; };
 		A2CB06D51CD1F0E2000F66A8 /* CustomerListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerListCell.m; sourceTree = "<group>"; };
 		A2CB06D81CD1F753000F66A8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		A2CB06DD1CD1F926000F66A8 /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+SWUtilityButtons.h"; path = "SWTable/NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
-		A2CB06DE1CD1F926000F66A8 /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+SWUtilityButtons.m"; path = "SWTable/NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
-		A2CB06DF1CD1F926000F66A8 /* SWCellScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWCellScrollView.h; path = SWTable/SWCellScrollView.h; sourceTree = "<group>"; };
-		A2CB06E01CD1F926000F66A8 /* SWCellScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWCellScrollView.m; path = SWTable/SWCellScrollView.m; sourceTree = "<group>"; };
-		A2CB06E11CD1F926000F66A8 /* SWLongPressGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWLongPressGestureRecognizer.h; path = SWTable/SWLongPressGestureRecognizer.h; sourceTree = "<group>"; };
-		A2CB06E21CD1F926000F66A8 /* SWLongPressGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWLongPressGestureRecognizer.m; path = SWTable/SWLongPressGestureRecognizer.m; sourceTree = "<group>"; };
-		A2CB06E31CD1F926000F66A8 /* SWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWTableViewCell.h; path = SWTable/SWTableViewCell.h; sourceTree = "<group>"; };
-		A2CB06E41CD1F926000F66A8 /* SWTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWTableViewCell.m; path = SWTable/SWTableViewCell.m; sourceTree = "<group>"; };
-		A2CB06E51CD1F926000F66A8 /* SWUtilityButtonTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWUtilityButtonTapGestureRecognizer.h; path = SWTable/SWUtilityButtonTapGestureRecognizer.h; sourceTree = "<group>"; };
-		A2CB06E61CD1F926000F66A8 /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWUtilityButtonTapGestureRecognizer.m; path = SWTable/SWUtilityButtonTapGestureRecognizer.m; sourceTree = "<group>"; };
-		A2CB06E71CD1F926000F66A8 /* SWUtilityButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWUtilityButtonView.h; path = SWTable/SWUtilityButtonView.h; sourceTree = "<group>"; };
-		A2CB06E81CD1F926000F66A8 /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWUtilityButtonView.m; path = SWTable/SWUtilityButtonView.m; sourceTree = "<group>"; };
 		A2CB06EF1CD1FF8F000F66A8 /* uncheck-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "uncheck-icon.png"; path = "PJNails/Resource/Image/uncheck-icon.png"; sourceTree = "<group>"; };
 		A2CE4B651CD0B06D00436DF1 /* PJNails.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PJNails.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2CE4B7E1CD0B06D00436DF1 /* PJNailsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PJNailsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +144,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A3758CF1DEECCCC001FCEE4 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				6A3758D01DEECCCC001FCEE4 /* AFNetworking */,
+				6A3758DE1DEECCCC001FCEE4 /* SWTable */,
+			);
+			name = Libs;
+			path = PJNails/Libs;
+			sourceTree = "<group>";
+		};
+		6A3758D01DEECCCC001FCEE4 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				6A3758D11DEECCCC001FCEE4 /* AFHTTPSessionManager.h */,
+				6A3758D21DEECCCC001FCEE4 /* AFHTTPSessionManager.m */,
+				6A3758D31DEECCCC001FCEE4 /* AFNetworking.h */,
+				6A3758D41DEECCCC001FCEE4 /* AFNetworkReachabilityManager.h */,
+				6A3758D51DEECCCC001FCEE4 /* AFNetworkReachabilityManager.m */,
+				6A3758D61DEECCCC001FCEE4 /* AFSecurityPolicy.h */,
+				6A3758D71DEECCCC001FCEE4 /* AFSecurityPolicy.m */,
+				6A3758D81DEECCCC001FCEE4 /* AFURLRequestSerialization.h */,
+				6A3758D91DEECCCC001FCEE4 /* AFURLRequestSerialization.m */,
+				6A3758DA1DEECCCC001FCEE4 /* AFURLResponseSerialization.h */,
+				6A3758DB1DEECCCC001FCEE4 /* AFURLResponseSerialization.m */,
+				6A3758DC1DEECCCC001FCEE4 /* AFURLSessionManager.h */,
+				6A3758DD1DEECCCC001FCEE4 /* AFURLSessionManager.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		6A3758DE1DEECCCC001FCEE4 /* SWTable */ = {
+			isa = PBXGroup;
+			children = (
+				6A3758DF1DEECCCC001FCEE4 /* NSMutableArray+SWUtilityButtons.h */,
+				6A3758E01DEECCCC001FCEE4 /* NSMutableArray+SWUtilityButtons.m */,
+				6A3758E11DEECCCC001FCEE4 /* SWCellScrollView.h */,
+				6A3758E21DEECCCC001FCEE4 /* SWCellScrollView.m */,
+				6A3758E31DEECCCC001FCEE4 /* SWLongPressGestureRecognizer.h */,
+				6A3758E41DEECCCC001FCEE4 /* SWLongPressGestureRecognizer.m */,
+				6A3758E51DEECCCC001FCEE4 /* SWTableViewCell.h */,
+				6A3758E61DEECCCC001FCEE4 /* SWTableViewCell.m */,
+				6A3758E71DEECCCC001FCEE4 /* SWUtilityButtonTapGestureRecognizer.h */,
+				6A3758E81DEECCCC001FCEE4 /* SWUtilityButtonTapGestureRecognizer.m */,
+				6A3758E91DEECCCC001FCEE4 /* SWUtilityButtonView.h */,
+				6A3758EA1DEECCCC001FCEE4 /* SWUtilityButtonView.m */,
+			);
+			path = SWTable;
+			sourceTree = "<group>";
+		};
 		A2972AC11CDAE286004051D1 /* CustomerRegister */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +214,7 @@
 		A2CB06891CD1B95B000F66A8 /* PJNails */ = {
 			isa = PBXGroup;
 			children = (
+				6A3758CF1DEECCCC001FCEE4 /* Libs */,
 				A2972AC51CDB2CB3004051D1 /* CustomerAppointment */,
 				A2972AC11CDAE286004051D1 /* CustomerRegister */,
 				A2CB06D71CD1F0F3000F66A8 /* AssignEmployee */,
@@ -195,30 +264,10 @@
 			name = AssignEmployee;
 			sourceTree = "<group>";
 		};
-		A2CB06DC1CD1F8FB000F66A8 /* SWTable */ = {
-			isa = PBXGroup;
-			children = (
-				A2CB06DD1CD1F926000F66A8 /* NSMutableArray+SWUtilityButtons.h */,
-				A2CB06DE1CD1F926000F66A8 /* NSMutableArray+SWUtilityButtons.m */,
-				A2CB06DF1CD1F926000F66A8 /* SWCellScrollView.h */,
-				A2CB06E01CD1F926000F66A8 /* SWCellScrollView.m */,
-				A2CB06E11CD1F926000F66A8 /* SWLongPressGestureRecognizer.h */,
-				A2CB06E21CD1F926000F66A8 /* SWLongPressGestureRecognizer.m */,
-				A2CB06E31CD1F926000F66A8 /* SWTableViewCell.h */,
-				A2CB06E41CD1F926000F66A8 /* SWTableViewCell.m */,
-				A2CB06E51CD1F926000F66A8 /* SWUtilityButtonTapGestureRecognizer.h */,
-				A2CB06E61CD1F926000F66A8 /* SWUtilityButtonTapGestureRecognizer.m */,
-				A2CB06E71CD1F926000F66A8 /* SWUtilityButtonView.h */,
-				A2CB06E81CD1F926000F66A8 /* SWUtilityButtonView.m */,
-			);
-			name = SWTable;
-			sourceTree = "<group>";
-		};
 		A2CE4B5C1CD0B06D00436DF1 = {
 			isa = PBXGroup;
 			children = (
 				A2CB06D81CD1F753000F66A8 /* UIKit.framework */,
-				A2CB06DC1CD1F8FB000F66A8 /* SWTable */,
 				A2CB06891CD1B95B000F66A8 /* PJNails */,
 				A2CB06A31CD1B9C6000F66A8 /* Resource */,
 				A2CE4B811CD0B06D00436DF1 /* PJNailsTests */,
@@ -394,15 +443,21 @@
 				A2CB06B21CD1C788000F66A8 /* UserMain.m in Sources */,
 				A2972AC81CDB2CCA004051D1 /* CustomerAppointmentController.m in Sources */,
 				A2972AC41CDAE729004051D1 /* CustomerRegisterController.m in Sources */,
-				A2CB06EE1CD1F926000F66A8 /* SWUtilityButtonView.m in Sources */,
-				A2CB06EC1CD1F926000F66A8 /* SWTableViewCell.m in Sources */,
-				A2CB06EA1CD1F926000F66A8 /* SWCellScrollView.m in Sources */,
+				6A3758F01DEECCCC001FCEE4 /* AFURLSessionManager.m in Sources */,
+				6A3758F51DEECCCC001FCEE4 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
+				6A3758EC1DEECCCC001FCEE4 /* AFNetworkReachabilityManager.m in Sources */,
 				A2CB06B51CD1CE7A000F66A8 /* AssignEmployeeController.m in Sources */,
 				A2CB06D61CD1F0E2000F66A8 /* CustomerListCell.m in Sources */,
-				A2CB06E91CD1F926000F66A8 /* NSMutableArray+SWUtilityButtons.m in Sources */,
-				A2CB06EB1CD1F926000F66A8 /* SWLongPressGestureRecognizer.m in Sources */,
+				6A3758F31DEECCCC001FCEE4 /* SWLongPressGestureRecognizer.m in Sources */,
+				6A3758EF1DEECCCC001FCEE4 /* AFURLResponseSerialization.m in Sources */,
+				6A3758F21DEECCCC001FCEE4 /* SWCellScrollView.m in Sources */,
+				6A3758EE1DEECCCC001FCEE4 /* AFURLRequestSerialization.m in Sources */,
+				6A3758ED1DEECCCC001FCEE4 /* AFSecurityPolicy.m in Sources */,
+				6A3758F41DEECCCC001FCEE4 /* SWTableViewCell.m in Sources */,
 				A2CB069C1CD1B968000F66A8 /* main.m in Sources */,
-				A2CB06ED1CD1F926000F66A8 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
+				6A3758F61DEECCCC001FCEE4 /* SWUtilityButtonView.m in Sources */,
+				6A3758F11DEECCCC001FCEE4 /* NSMutableArray+SWUtilityButtons.m in Sources */,
+				6A3758EB1DEECCCC001FCEE4 /* AFHTTPSessionManager.m in Sources */,
 				A2CB069E1CD1B968000F66A8 /* LoginController.m in Sources */,
 				A2CB06961CD1B968000F66A8 /* AppDelegate.m in Sources */,
 			);

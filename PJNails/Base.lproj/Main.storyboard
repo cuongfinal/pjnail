@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -46,8 +46,17 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FU9-fz-Lvc">
+                                <rect key="frame" x="200" y="558" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select here for user login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ak4-YT-Let">
+                                <rect key="frame" x="262" y="563" width="301" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFi-td-wDD">
-                                <rect key="frame" x="200" y="546" width="368" height="40"/>
+                                <rect key="frame" x="200" y="606" width="368" height="40"/>
                                 <color key="backgroundColor" red="0.011764705882352941" green="0.78823529411764703" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="1Ui-PJ-Zoq"/>
@@ -67,14 +76,24 @@
                             <constraint firstItem="0MM-p6-s04" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="185" id="9Kf-Xz-n6F"/>
                             <constraint firstAttribute="trailingMargin" secondItem="B6x-5l-ulG" secondAttribute="trailing" constant="180" id="EWn-QY-NNL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qFi-td-wDD" secondAttribute="trailing" constant="180" id="GSt-lm-Ejc"/>
+                            <constraint firstItem="FU9-fz-Lvc" firstAttribute="leading" secondItem="OqY-Ov-7rD" secondAttribute="leading" id="It7-Je-CdR"/>
                             <constraint firstItem="B6x-5l-ulG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="180" id="XZ6-dO-j1f"/>
                             <constraint firstItem="qFi-td-wDD" firstAttribute="top" secondItem="OqY-Ov-7rD" secondAttribute="bottom" constant="20" id="Xj5-Lm-YVq"/>
                             <constraint firstItem="qFi-td-wDD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="180" id="fSC-P7-nfc"/>
                             <constraint firstItem="OqY-Ov-7rD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="180" id="lcF-iH-Z4l"/>
+                            <constraint firstItem="FU9-fz-Lvc" firstAttribute="top" secondItem="OqY-Ov-7rD" secondAttribute="bottom" constant="32" id="meN-4x-fui"/>
+                            <constraint firstItem="qFi-td-wDD" firstAttribute="top" secondItem="FU9-fz-Lvc" secondAttribute="bottom" constant="17" id="s8G-RF-p2Y"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OqY-Ov-7rD" secondAttribute="trailing" constant="180" id="uAL-fX-p1u"/>
                             <constraint firstItem="OqY-Ov-7rD" firstAttribute="top" secondItem="B6x-5l-ulG" secondAttribute="bottom" constant="10" id="ugy-Oy-WDO"/>
                             <constraint firstItem="0MM-p6-s04" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="300" id="zKM-gv-oDE"/>
+                            <constraint firstAttribute="bottom" secondItem="FU9-fz-Lvc" secondAttribute="bottom" constant="435" id="zZl-b8-WNX"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8pu-XL-tRa"/>
+                                <exclude reference="Xj5-Lm-YVq"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="P2f-ub-YOB" appends="YES" id="AU2-8t-R0i"/>
                         </connections>
@@ -423,7 +442,7 @@
             <objects>
                 <tableViewController id="2Ik-dt-QOs" customClass="AssignEmployeeController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" id="DyF-nF-aA1">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -584,6 +603,6 @@
         <image name="user-icon.png" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ebc-5F-ar4"/>
+        <segue reference="f9c-UQ-ZZl"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SWTable/SWTableViewCell.h"
+#import "SWTableViewCell.h"
 @interface CustomerListCell : SWTableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *lblName;
