@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		007C3CE81DF0782400859ED5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007C3CE71DF0782400859ED5 /* SWRevealViewController.m */; };
+		007C3CEB1DF0A25E00859ED5 /* reveal-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 007C3CE91DF0A25E00859ED5 /* reveal-icon.png */; };
+		007C3CEC1DF0A25E00859ED5 /* reveal-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 007C3CEA1DF0A25E00859ED5 /* reveal-icon@2x.png */; };
 		6A3758EB1DEECCCC001FCEE4 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3758D21DEECCCC001FCEE4 /* AFHTTPSessionManager.m */; };
 		6A3758EC1DEECCCC001FCEE4 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3758D51DEECCCC001FCEE4 /* AFNetworkReachabilityManager.m */; };
 		6A3758ED1DEECCCC001FCEE4 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3758D71DEECCCC001FCEE4 /* AFSecurityPolicy.m */; };
@@ -59,6 +62,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		007C3CE61DF0782400859ED5 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
+		007C3CE71DF0782400859ED5 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
+		007C3CE91DF0A25E00859ED5 /* reveal-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reveal-icon.png"; path = "PJNails/Resource/Image/reveal-icon.png"; sourceTree = "<group>"; };
+		007C3CEA1DF0A25E00859ED5 /* reveal-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reveal-icon@2x.png"; path = "PJNails/Resource/Image/reveal-icon@2x.png"; sourceTree = "<group>"; };
 		6A3758D11DEECCCC001FCEE4 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		6A3758D21DEECCCC001FCEE4 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		6A3758D31DEECCCC001FCEE4 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -144,9 +151,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		007C3CE51DF0780000859ED5 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				007C3CE61DF0782400859ED5 /* SWRevealViewController.h */,
+				007C3CE71DF0782400859ED5 /* SWRevealViewController.m */,
+			);
+			name = SWRevealViewController;
+			sourceTree = "<group>";
+		};
 		6A3758CF1DEECCCC001FCEE4 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				007C3CE51DF0780000859ED5 /* SWRevealViewController */,
 				6A3758D01DEECCCC001FCEE4 /* AFNetworking */,
 				6A3758DE1DEECCCC001FCEE4 /* SWTable */,
 			);
@@ -243,6 +260,8 @@
 		A2CB06A61CD1BA28000F66A8 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				007C3CE91DF0A25E00859ED5 /* reveal-icon.png */,
+				007C3CEA1DF0A25E00859ED5 /* reveal-icon@2x.png */,
 				A2CB06EF1CD1FF8F000F66A8 /* uncheck-icon.png */,
 				A2CB06BE1CD1ECA5000F66A8 /* user-icon.png */,
 				A2CB06B81CD1E89D000F66A8 /* appointment-tabIcon.png */,
@@ -371,6 +390,7 @@
 				TargetAttributes = {
 					A2CE4B641CD0B06D00436DF1 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0810;
 					};
 					A2CE4B7D1CD0B06D00436DF1 = {
 						CreatedOnToolsVersion = 7.3;
@@ -409,6 +429,7 @@
 			files = (
 				A2CB06B71CD1D6B5000F66A8 /* checked-icon.png in Resources */,
 				A2CB06A21CD1B9A8000F66A8 /* Main.storyboard in Resources */,
+				007C3CEC1DF0A25E00859ED5 /* reveal-icon@2x.png in Resources */,
 				A2CB06BC1CD1E89D000F66A8 /* list-tabIcon.png in Resources */,
 				A2CB06971CD1B968000F66A8 /* Assets.xcassets in Resources */,
 				A2CB06F01CD1FF8F000F66A8 /* uncheck-icon.png in Resources */,
@@ -416,6 +437,7 @@
 				A2CB06BF1CD1ECA6000F66A8 /* user-icon.png in Resources */,
 				A2CB06BB1CD1E89D000F66A8 /* appointment-tabIcon.png in Resources */,
 				A2CB069B1CD1B968000F66A8 /* Info.plist in Resources */,
+				007C3CEB1DF0A25E00859ED5 /* reveal-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +476,7 @@
 				6A3758EE1DEECCCC001FCEE4 /* AFURLRequestSerialization.m in Sources */,
 				6A3758ED1DEECCCC001FCEE4 /* AFSecurityPolicy.m in Sources */,
 				6A3758F41DEECCCC001FCEE4 /* SWTableViewCell.m in Sources */,
+				007C3CE81DF0782400859ED5 /* SWRevealViewController.m in Sources */,
 				A2CB069C1CD1B968000F66A8 /* main.m in Sources */,
 				6A3758F61DEECCCC001FCEE4 /* SWUtilityButtonView.m in Sources */,
 				6A3758F11DEECCCC001FCEE4 /* NSMutableArray+SWUtilityButtons.m in Sources */,
@@ -583,12 +606,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PJNails/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cuong.PJNails;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -597,12 +623,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PJNails/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cuong.PJNails;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;

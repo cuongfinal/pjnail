@@ -7,8 +7,8 @@
 //
 
 #import "AssignEmployeeController.h"
-#import "CustomerListCell.h";
-
+#import "CustomerListCell.h"
+#import "SWRevealViewController.h"
 @interface AssignEmployeeController ()
 @end
 NSArray *arrName;
@@ -18,6 +18,19 @@ NSArray *arrStatus;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = NSLocalizedString(@"Assign Employee", nil);
+    
+    SWRevealViewController *revealController = [self revealViewController];
+    
+    
+    [revealController panGestureRecognizer];
+    [revealController tapGestureRecognizer];
+    
+    UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-icon.png"]
+                                                                         style:UIBarButtonItemStylePlain target:revealController action:@selector(revealToggle:)];
+    
+    self.navigationItem.leftBarButtonItem = revealButtonItem;
+    // Do any additional setup after loading the view, typically fr
     arrName = @[@"Le Quang", @"Tuan Cuong", @"Test"];
     arrPhone =@[@"01672173439", @"123456789", @"1234556223"];
     arrStatus =@[@"1", @"0", @"1"];
