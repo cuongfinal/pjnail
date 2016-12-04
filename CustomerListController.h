@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "CustomerListCell.h"
 #import "SWTableViewCell.h"
-@interface AssignEmployeeController : UITableViewController  <SWTableViewCellDelegate>
+#import "CustomerDetailsController.h"
+@interface CustomerListController : UITableViewController  <SWTableViewCellDelegate>
+
 
 @end

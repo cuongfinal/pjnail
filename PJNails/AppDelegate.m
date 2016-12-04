@@ -7,18 +7,56 @@
 //
 
 #import "AppDelegate.h"
-
+#import "AFNetworking.h"
+#import "DefineClass.h"
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
+@synthesize token = _token;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self getAccessToken];
     return YES;
 }
+-(void)getAccessToken{
+    NSError *error;      // Initialize NSError
+    NSDictionary *parameters = @{@"username": @"shop1", @"password": @"123456"};
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error]; // Convert parameter to NSDATA
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]; // Convert data into string using NSUTF8StringEncoding
+    
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]; //Intialialize AFURLSessionManager
+    
+    NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:@GetAccessToken parameters:nil error:nil];
+    req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
+    [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [req setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        if (!error) {
+            NSDictionary *jsonDict = (NSDictionary *) responseObject;
+            NSDictionary *dataArray = [jsonDict objectForKey:@"data"];
+            _token = [dataArray objectForKey:@"token"];
+            NSLog(@"Get token successful");
+        } else {
+            NSLog(@"Error: %@, %@, %@", error, response, responseObject);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Can not get api token" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+            [alert setTag:1];
+            [alert show];
+        }
+        
+    }]resume];
+}
+
+// Getter method
+-(NSString*) getToken {
+    return _token;
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

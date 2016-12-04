@@ -9,13 +9,18 @@
 #import "LoginController.h"
 #import "AFNetworking.h"
 #import "SWRevealViewController.h"
-
+#import "DefineClass.h"
+#import "AppDelegate.h"
 
 @interface LoginController ()
 
 @end
 
 @implementation LoginController
+{
+    AppDelegate *delegate;
+   
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,31 +38,38 @@
         [alert setTag:1];
         [alert show];
     }
-    [self performSegueWithIdentifier:@"user_login_success" sender:self];
-//    [self getAccessToken];
-
+    NSString *isUser = [NSString stringWithFormat:@"%@",(self.swUser.isOn ? @"Yes":@"No")];
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSString *token = appDelegate.token;
+    if([isUser isEqualToString:@"Yes"]){
+         [self doLoginUser: token];
+    }else{
+         [self doLoginShop: token];
+    }
 }
--(void)getAccessToken{
+
+-(void)doLoginShop:(NSString*)token{
     NSError *error;      // Initialize NSError
-    NSDictionary *parameters = @{@"username": [self.txtUsername text], @"password": [self.txtPassword text]};
+    NSDictionary *parameters = @{@"account": [self.txtUsername text], @"password": [self.txtPassword text], @"udid": @"68753A44-4D6F-1226-9C60-0050E4C00067"};
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error]; // Convert parameter to NSDATA
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]; // Convert data into string using NSUTF8StringEncoding
     
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]; //Intialialize AFURLSessionManager
     
-    NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:@"http://f24915cc.ngrok.io/api/api-users/token" parameters:nil error:nil];
+    NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:@ShopLogin parameters:nil error:nil];
     req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
     [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [req setValue:token forHTTPHeaderField:@"Authorization"];
     [req setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
     
     [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         if (!error) {
             NSDictionary *jsonDict = (NSDictionary *) responseObject;
-            NSDictionary *dataArray = [jsonDict objectForKey:@"data"];
-            _token = [dataArray objectForKey:@"token"];
-            NSLog(@"Get token successful");
-            [self doLogin:_token];
+            NSString *status = [jsonDict objectForKey:@"status"];
+            if([status isEqualToString:@"success"]){
+                [self performSegueWithIdentifier:@"shop_login_success" sender:self];
+            }
         } else {
             NSLog(@"Error: %@, %@, %@", error, response, responseObject);
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Your username or password is incorrect" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
@@ -68,15 +80,16 @@
     }]resume];
 }
 
--(void)doLogin:(NSString*)token{
+-(void)doLoginUser:(NSString*)token{
     NSError *error;      // Initialize NSError
-    NSDictionary *parameters = @{@"account": [self.txtUsername text], @"password": [self.txtPassword text], @"udid": @"68753A44-4D6F-1226-9C60-0050E4C00067"};
+    NSDictionary *parameters = @{@"username": [self.txtUsername text], @"password": [self.txtPassword text]};
+    NSString *urlLogin = [NSString stringWithFormat: @"%@?udid=%@", @ShopLogin, @"68753A44-4D6F-1226-9C60-0050E4C00067"];
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error]; // Convert parameter to NSDATA
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]; // Convert data into string using NSUTF8StringEncoding
     
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]; //Intialialize AFURLSessionManager
     
-    NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:@"http://f24915cc.ngrok.io/api/api-users/token" parameters:nil error:nil];
+    NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:@ShopLogin parameters:nil error:nil];
     req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
     [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
@@ -85,7 +98,11 @@
     
     [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         if (!error) {
-            [self performSegueWithIdentifier:@"user_login_success" sender:self];
+            NSDictionary *jsonDict = (NSDictionary *) responseObject;
+            NSString *status = [jsonDict objectForKey:@"status"];
+            if([status isEqualToString:@"success"]){
+                [self performSegueWithIdentifier:@"shop_login_success" sender:self];
+            }
         } else {
             NSLog(@"Error: %@, %@, %@", error, response, responseObject);
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Your username or password is incorrect" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];

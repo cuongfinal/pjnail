@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 @interface LoginController : UIViewController<UITextFieldDelegate>
-
+{
+    NSMutableArray *arrCustomer;
+}
 @property (weak, nonatomic) IBOutlet UITextField *txtUsername;
 @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
 @property (weak, nonatomic) NSString *token;
 - (IBAction)signInClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *btnSignIn;
 - (IBAction)backgroundTapped:(id)sender;
+@property (weak, nonatomic) IBOutlet UISwitch *swUser;
 
 
 @end

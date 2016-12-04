@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000A98681DF1C36000D9FB52 /* DefineClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 000A98671DF1C36000D9FB52 /* DefineClass.m */; };
+		000A986E1DF3D81800D9FB52 /* CustomerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 000A986D1DF3D81800D9FB52 /* CustomerModel.m */; };
+		000A98721DF4535A00D9FB52 /* CustomerDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 000A98711DF4535A00D9FB52 /* CustomerDetailsController.m */; };
+		000A98741DF49AF700D9FB52 /* default-avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 000A98731DF49AF700D9FB52 /* default-avatar.jpg */; };
 		007C3CE81DF0782400859ED5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007C3CE71DF0782400859ED5 /* SWRevealViewController.m */; };
 		007C3CEB1DF0A25E00859ED5 /* reveal-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 007C3CE91DF0A25E00859ED5 /* reveal-icon.png */; };
 		007C3CEC1DF0A25E00859ED5 /* reveal-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 007C3CEA1DF0A25E00859ED5 /* reveal-icon@2x.png */; };
@@ -31,7 +35,7 @@
 		A2CB069E1CD1B968000F66A8 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CB06951CD1B968000F66A8 /* LoginController.m */; };
 		A2CB06A21CD1B9A8000F66A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2CB06A01CD1B9A8000F66A8 /* Main.storyboard */; };
 		A2CB06B21CD1C788000F66A8 /* UserMain.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CB06B11CD1C788000F66A8 /* UserMain.m */; };
-		A2CB06B51CD1CE7A000F66A8 /* AssignEmployeeController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CB06B41CD1CE7A000F66A8 /* AssignEmployeeController.m */; };
+		A2CB06B51CD1CE7A000F66A8 /* CustomerListController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CB06B41CD1CE7A000F66A8 /* CustomerListController.m */; };
 		A2CB06B71CD1D6B5000F66A8 /* checked-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A2CB06B61CD1D6B5000F66A8 /* checked-icon.png */; };
 		A2CB06BB1CD1E89D000F66A8 /* appointment-tabIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A2CB06B81CD1E89D000F66A8 /* appointment-tabIcon.png */; };
 		A2CB06BC1CD1E89D000F66A8 /* list-tabIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A2CB06B91CD1E89D000F66A8 /* list-tabIcon.png */; };
@@ -62,6 +66,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		000A98661DF1C36000D9FB52 /* DefineClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefineClass.h; sourceTree = "<group>"; };
+		000A98671DF1C36000D9FB52 /* DefineClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefineClass.m; sourceTree = "<group>"; };
+		000A986C1DF3D81800D9FB52 /* CustomerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerModel.h; sourceTree = "<group>"; };
+		000A986D1DF3D81800D9FB52 /* CustomerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerModel.m; sourceTree = "<group>"; };
+		000A98701DF4535A00D9FB52 /* CustomerDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerDetailsController.h; sourceTree = "<group>"; };
+		000A98711DF4535A00D9FB52 /* CustomerDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerDetailsController.m; sourceTree = "<group>"; };
+		000A98731DF49AF700D9FB52 /* default-avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "default-avatar.jpg"; path = "PJNails/Resource/Image/default-avatar.jpg"; sourceTree = "<group>"; };
 		007C3CE61DF0782400859ED5 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
 		007C3CE71DF0782400859ED5 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
 		007C3CE91DF0A25E00859ED5 /* reveal-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reveal-icon.png"; path = "PJNails/Resource/Image/reveal-icon.png"; sourceTree = "<group>"; };
@@ -105,8 +116,8 @@
 		A2CB06A01CD1B9A8000F66A8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = PJNails/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A2CB06B01CD1C788000F66A8 /* UserMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserMain.h; sourceTree = "<group>"; };
 		A2CB06B11CD1C788000F66A8 /* UserMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserMain.m; sourceTree = "<group>"; };
-		A2CB06B31CD1CE7A000F66A8 /* AssignEmployeeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssignEmployeeController.h; sourceTree = "<group>"; };
-		A2CB06B41CD1CE7A000F66A8 /* AssignEmployeeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssignEmployeeController.m; sourceTree = "<group>"; };
+		A2CB06B31CD1CE7A000F66A8 /* CustomerListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerListController.h; sourceTree = "<group>"; };
+		A2CB06B41CD1CE7A000F66A8 /* CustomerListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerListController.m; sourceTree = "<group>"; };
 		A2CB06B61CD1D6B5000F66A8 /* checked-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "checked-icon.png"; path = "PJNails/Resource/Image/checked-icon.png"; sourceTree = "<group>"; };
 		A2CB06B81CD1E89D000F66A8 /* appointment-tabIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "appointment-tabIcon.png"; path = "PJNails/Resource/Image/appointment-tabIcon.png"; sourceTree = "<group>"; };
 		A2CB06B91CD1E89D000F66A8 /* list-tabIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "list-tabIcon.png"; path = "PJNails/Resource/Image/list-tabIcon.png"; sourceTree = "<group>"; };
@@ -151,6 +162,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		000A98691DF1C37600D9FB52 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A2CB06921CD1B968000F66A8 /* LoginController.h */,
+				A2CB06951CD1B968000F66A8 /* LoginController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		000A986A1DF1C38000D9FB52 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				000A98691DF1C37600D9FB52 /* Login */,
+				A2972AC51CDB2CB3004051D1 /* CustomerAppointment */,
+				A2972AC11CDAE286004051D1 /* CustomerRegister */,
+				A2CB06D71CD1F0F3000F66A8 /* CustomerList */,
+				000A986F1DF4531500D9FB52 /* CustomerDetails */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		000A986F1DF4531500D9FB52 /* CustomerDetails */ = {
+			isa = PBXGroup;
+			children = (
+				000A98701DF4535A00D9FB52 /* CustomerDetailsController.h */,
+				000A98711DF4535A00D9FB52 /* CustomerDetailsController.m */,
+			);
+			name = CustomerDetails;
+			sourceTree = "<group>";
+		};
 		007C3CE51DF0780000859ED5 /* SWRevealViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,20 +272,18 @@
 		A2CB06891CD1B95B000F66A8 /* PJNails */ = {
 			isa = PBXGroup;
 			children = (
+				000A986A1DF1C38000D9FB52 /* ViewController */,
 				6A3758CF1DEECCCC001FCEE4 /* Libs */,
-				A2972AC51CDB2CB3004051D1 /* CustomerAppointment */,
-				A2972AC11CDAE286004051D1 /* CustomerRegister */,
-				A2CB06D71CD1F0F3000F66A8 /* AssignEmployee */,
+				A2CB06A01CD1B9A8000F66A8 /* Main.storyboard */,
 				A2CB068A1CD1B968000F66A8 /* AppDelegate.h */,
 				A2CB068B1CD1B968000F66A8 /* AppDelegate.m */,
-				A2CB06921CD1B968000F66A8 /* LoginController.h */,
-				A2CB06951CD1B968000F66A8 /* LoginController.m */,
 				A2CB06B01CD1C788000F66A8 /* UserMain.h */,
 				A2CB06B11CD1C788000F66A8 /* UserMain.m */,
-				A2CB06A01CD1B9A8000F66A8 /* Main.storyboard */,
-				A2CB06931CD1B968000F66A8 /* main.m */,
 				A2CB068C1CD1B968000F66A8 /* Assets.xcassets */,
+				A2CB06931CD1B968000F66A8 /* main.m */,
 				A2CB06911CD1B968000F66A8 /* Info.plist */,
+				000A98661DF1C36000D9FB52 /* DefineClass.h */,
+				000A98671DF1C36000D9FB52 /* DefineClass.m */,
 			);
 			name = PJNails;
 			sourceTree = "<group>";
@@ -260,6 +299,7 @@
 		A2CB06A61CD1BA28000F66A8 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				000A98731DF49AF700D9FB52 /* default-avatar.jpg */,
 				007C3CE91DF0A25E00859ED5 /* reveal-icon.png */,
 				007C3CEA1DF0A25E00859ED5 /* reveal-icon@2x.png */,
 				A2CB06EF1CD1FF8F000F66A8 /* uncheck-icon.png */,
@@ -272,15 +312,17 @@
 			name = Image;
 			sourceTree = "<group>";
 		};
-		A2CB06D71CD1F0F3000F66A8 /* AssignEmployee */ = {
+		A2CB06D71CD1F0F3000F66A8 /* CustomerList */ = {
 			isa = PBXGroup;
 			children = (
-				A2CB06B31CD1CE7A000F66A8 /* AssignEmployeeController.h */,
-				A2CB06B41CD1CE7A000F66A8 /* AssignEmployeeController.m */,
+				A2CB06B31CD1CE7A000F66A8 /* CustomerListController.h */,
+				A2CB06B41CD1CE7A000F66A8 /* CustomerListController.m */,
 				A2CB06D41CD1F0E2000F66A8 /* CustomerListCell.h */,
 				A2CB06D51CD1F0E2000F66A8 /* CustomerListCell.m */,
+				000A986C1DF3D81800D9FB52 /* CustomerModel.h */,
+				000A986D1DF3D81800D9FB52 /* CustomerModel.m */,
 			);
-			name = AssignEmployee;
+			name = CustomerList;
 			sourceTree = "<group>";
 		};
 		A2CE4B5C1CD0B06D00436DF1 = {
@@ -429,6 +471,7 @@
 			files = (
 				A2CB06B71CD1D6B5000F66A8 /* checked-icon.png in Resources */,
 				A2CB06A21CD1B9A8000F66A8 /* Main.storyboard in Resources */,
+				000A98741DF49AF700D9FB52 /* default-avatar.jpg in Resources */,
 				007C3CEC1DF0A25E00859ED5 /* reveal-icon@2x.png in Resources */,
 				A2CB06BC1CD1E89D000F66A8 /* list-tabIcon.png in Resources */,
 				A2CB06971CD1B968000F66A8 /* Assets.xcassets in Resources */,
@@ -464,14 +507,17 @@
 			files = (
 				A2CB06B21CD1C788000F66A8 /* UserMain.m in Sources */,
 				A2972AC81CDB2CCA004051D1 /* CustomerAppointmentController.m in Sources */,
+				000A98721DF4535A00D9FB52 /* CustomerDetailsController.m in Sources */,
 				A2972AC41CDAE729004051D1 /* CustomerRegisterController.m in Sources */,
 				6A3758F01DEECCCC001FCEE4 /* AFURLSessionManager.m in Sources */,
 				6A3758F51DEECCCC001FCEE4 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				6A3758EC1DEECCCC001FCEE4 /* AFNetworkReachabilityManager.m in Sources */,
-				A2CB06B51CD1CE7A000F66A8 /* AssignEmployeeController.m in Sources */,
+				A2CB06B51CD1CE7A000F66A8 /* CustomerListController.m in Sources */,
 				A2CB06D61CD1F0E2000F66A8 /* CustomerListCell.m in Sources */,
 				6A3758F31DEECCCC001FCEE4 /* SWLongPressGestureRecognizer.m in Sources */,
+				000A98681DF1C36000D9FB52 /* DefineClass.m in Sources */,
 				6A3758EF1DEECCCC001FCEE4 /* AFURLResponseSerialization.m in Sources */,
+				000A986E1DF3D81800D9FB52 /* CustomerModel.m in Sources */,
 				6A3758F21DEECCCC001FCEE4 /* SWCellScrollView.m in Sources */,
 				6A3758EE1DEECCCC001FCEE4 /* AFURLRequestSerialization.m in Sources */,
 				6A3758ED1DEECCCC001FCEE4 /* AFSecurityPolicy.m in Sources */,
