@@ -11,6 +11,7 @@
 		000A986E1DF3D81800D9FB52 /* CustomerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 000A986D1DF3D81800D9FB52 /* CustomerModel.m */; };
 		000A98721DF4535A00D9FB52 /* CustomerDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 000A98711DF4535A00D9FB52 /* CustomerDetailsController.m */; };
 		000A98741DF49AF700D9FB52 /* default-avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 000A98731DF49AF700D9FB52 /* default-avatar.jpg */; };
+		000A98771DF4A56500D9FB52 /* AddCustomer.m in Sources */ = {isa = PBXBuildFile; fileRef = 000A98761DF4A56500D9FB52 /* AddCustomer.m */; };
 		007C3CE81DF0782400859ED5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007C3CE71DF0782400859ED5 /* SWRevealViewController.m */; };
 		007C3CEB1DF0A25E00859ED5 /* reveal-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 007C3CE91DF0A25E00859ED5 /* reveal-icon.png */; };
 		007C3CEC1DF0A25E00859ED5 /* reveal-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 007C3CEA1DF0A25E00859ED5 /* reveal-icon@2x.png */; };
@@ -73,6 +74,8 @@
 		000A98701DF4535A00D9FB52 /* CustomerDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerDetailsController.h; sourceTree = "<group>"; };
 		000A98711DF4535A00D9FB52 /* CustomerDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerDetailsController.m; sourceTree = "<group>"; };
 		000A98731DF49AF700D9FB52 /* default-avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "default-avatar.jpg"; path = "PJNails/Resource/Image/default-avatar.jpg"; sourceTree = "<group>"; };
+		000A98751DF4A56500D9FB52 /* AddCustomer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCustomer.h; sourceTree = "<group>"; };
+		000A98761DF4A56500D9FB52 /* AddCustomer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCustomer.m; sourceTree = "<group>"; };
 		007C3CE61DF0782400859ED5 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
 		007C3CE71DF0782400859ED5 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
 		007C3CE91DF0A25E00859ED5 /* reveal-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reveal-icon.png"; path = "PJNails/Resource/Image/reveal-icon.png"; sourceTree = "<group>"; };
@@ -317,6 +320,8 @@
 			children = (
 				A2CB06B31CD1CE7A000F66A8 /* CustomerListController.h */,
 				A2CB06B41CD1CE7A000F66A8 /* CustomerListController.m */,
+				000A98751DF4A56500D9FB52 /* AddCustomer.h */,
+				000A98761DF4A56500D9FB52 /* AddCustomer.m */,
 				A2CB06D41CD1F0E2000F66A8 /* CustomerListCell.h */,
 				A2CB06D51CD1F0E2000F66A8 /* CustomerListCell.m */,
 				000A986C1DF3D81800D9FB52 /* CustomerModel.h */,
@@ -528,6 +533,7 @@
 				6A3758F11DEECCCC001FCEE4 /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				6A3758EB1DEECCCC001FCEE4 /* AFHTTPSessionManager.m in Sources */,
 				A2CB069E1CD1B968000F66A8 /* LoginController.m in Sources */,
+				000A98771DF4A56500D9FB52 /* AddCustomer.m in Sources */,
 				A2CB06961CD1B968000F66A8 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

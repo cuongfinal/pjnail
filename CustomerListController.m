@@ -22,7 +22,6 @@ CustomerModel *model;
 NSMutableArray *arrCustomer;
 NSMutableArray *arrName;
 NSMutableArray *arrPhone;
-NSMutableArray *arrStatus;
 
 @implementation CustomerListController
 
@@ -37,10 +36,14 @@ NSMutableArray *arrStatus;
     
     UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-icon.png"]
                                                                          style:UIBarButtonItemStylePlain target:revealController action:@selector(revealToggle:)];
+    UIBarButtonItem *addCustomerButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Add Customer" style:UIBarButtonItemStylePlain target:self action:@selector(addCustomer)];
+    
     self.navigationItem.leftBarButtonItem = revealButtonItem;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    self.navigationItem.rightBarButtonItem = addCustomerButtonItem;
+    
     
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     NSString *token = appDelegate.token;
@@ -51,6 +54,9 @@ NSMutableArray *arrStatus;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+-(void)addCustomer{
+   [self performSegueWithIdentifier:@"add_customer" sender:self];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:NO];
@@ -124,10 +130,7 @@ NSMutableArray *arrStatus;
     [rightUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:0.95 green:0.61 blue:0.07 alpha:1.0]
                                                 title:@"Detail"];
-//    [rightUtilityButtons sw_addUtilityButtonWithColor:
-//     [UIColor colorWithRed:0.09 green:0.63 blue:0.52 alpha:1.0]
-//                                                title:@"Paid"];
-//    
+
     cell.leftUtilityButtons = leftUtilityButtons;
     cell.rightUtilityButtons = rightUtilityButtons;
     cell.delegate = self;
@@ -135,10 +138,10 @@ NSMutableArray *arrStatus;
     UIImage *image = [UIImage imageNamed:@"checked-icon.png"];
     cell.lblName.text = arrName[indexPath.row];
     cell.lblPhone.text = arrPhone[indexPath.row];
-    if([arrStatus[indexPath.row]  isEqual: @"0"]){
-        image = [UIImage imageNamed:@"uncheck-icon.png"];
-    }
-    [cell.imgStatus setImage:image];
+//    if([arrStatus[indexPath.row]  isEqual: @"0"]){
+//        image = [UIImage imageNamed:@"uncheck-icon.png"];
+//    }
+//    [cell.imgStatus setImage:image];
     
     return cell;
 }
