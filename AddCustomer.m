@@ -33,38 +33,41 @@
 }
 - (IBAction)clickRegister:(id)sender {
     
+    NSString *swValue = [NSString stringWithFormat:@"%d",(self.swFavorite.isOn ? 0:1)];
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSString *token = appDelegate.token;
     
-//    NSError *error;      // Initialize NSError
-//    NSDictionary *parameters = @{@"email": [self.txtUsername text], @"first_name": [self.txtPassword text], @"last_name": [self.txtPassword text], @"birthday": [self.txtPassword text], @"address": [self.txtPassword text], @"telephone": [self.txtPassword text], @"avatar": [self.txtPassword text], @"favorite": [self.txtPassword text], @"last_visit": [self.txtPassword text], @"last_service": [self.txtPassword text]};
-//    
-//    NSString *urlLogin = [NSString stringWithFormat: @"%@?udid=%@", @ShopLogin, @"68753A44-4D6F-1226-9C60-0050E4C00067"];
-//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error]; // Convert parameter to NSDATA
-//    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]; // Convert data into string using NSUTF8StringEncoding
-//    
-//    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]; //Intialialize AFURLSessionManager
-//    
-//    NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:@ShopLogin parameters:nil error:nil];
-//    req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
-//    [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//    [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-//    [req setValue:token forHTTPHeaderField:@"Authorization"];
-//    [req setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-//        if (!error) {
-//            NSDictionary *jsonDict = (NSDictionary *) responseObject;
-//            NSString *status = [jsonDict objectForKey:@"status"];
-//            if([status isEqualToString:@"success"]){
-//                [self performSegueWithIdentifier:@"shop_login_success" sender:self];
-//            }
-//        } else {
-//            NSLog(@"Error: %@, %@, %@", error, response, responseObject);
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Your username or password is incorrect" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-//            [alert setTag:1];
-//            [alert show];
-//        }
-//        
-//    }]resume];
+    NSError *error;      // Initialize NSError
+    NSDictionary *parameters = @{@"email": [self.txtEmail text], @"first_name": [self.txtFirstName text], @"last_name": [self.txtLastName text], @"birthday": [self.txtBirthday text], @"address": [self.txtAddress text], @"telephone": [self.txtTelephone text], @"avatar": @"1", @"favorite": swValue, @"last_visit": [self.txtLastVisit text], @"last_service": [self.txtServices text]};
+    
+    NSString *urlCreate = [NSString stringWithFormat: @"%@?udid=%@", @CreateCustomer, @"68753A44-4D6F-1226-9C60-0050E4C00067"];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error]; // Convert parameter to NSDATA
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]; // Convert data into string using NSUTF8StringEncoding
+    
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]; //Intialialize AFURLSessionManager
+    
+    NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlCreate parameters:nil error:nil];
+    req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
+    [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [req setValue:token forHTTPHeaderField:@"Authorization"];
+    [req setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        if (!error) {
+            NSDictionary *jsonDict = (NSDictionary *) responseObject;
+            NSString *status = [jsonDict objectForKey:@"status"];
+            if([status isEqualToString:@"success"]){
+                [self performSegueWithIdentifier:@"shop_login_success" sender:self];
+            }
+        } else {
+            NSLog(@"Error: %@, %@, %@", error, response, responseObject);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Your username or password is incorrect" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+            [alert setTag:1];
+            [alert show];
+        }
+        
+    }]resume];
 
 }
 -(void) birthDayTextField:(id)sender

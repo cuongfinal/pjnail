@@ -18,9 +18,9 @@
 @interface CustomerListController ()
 @end
 
-CustomerModel *model;
+CustomerModel *model2;
 NSMutableArray *arrCustomer;
-NSMutableArray *arrName;
+NSMutableArray *arrName2;
 NSMutableArray *arrPhone;
 
 @implementation CustomerListController
@@ -64,7 +64,7 @@ NSMutableArray *arrPhone;
 }
 -(void)getCustomerList:(NSString*)token{
     arrCustomer = [[NSMutableArray alloc] init];
-    arrName = [[NSMutableArray alloc] init];
+    arrName2 = [[NSMutableArray alloc] init];
     arrPhone = [[NSMutableArray alloc] init];
 
     
@@ -80,18 +80,18 @@ NSMutableArray *arrPhone;
         if (!error) {
             NSDictionary *jsonDict = (NSDictionary *) responseObject;
             for (NSDictionary *groupDic in jsonDict) {
-                model = [[CustomerModel alloc] init];
-                model.shops_id = groupDic[@"shops_id"];
-                model.first_name = groupDic[@"first_name"];
-                model.last_name = groupDic[@"last_name"];
-                model.birthday = groupDic[@"birthday"];
-                model.address = groupDic[@"address"];
-                model.telephone = groupDic[@"telephone"];
-                model.email = groupDic[@"email"];
-                NSString *name = [NSString stringWithFormat:@"%@ %@", model.first_name, model.last_name];
-                [arrName addObject:name];
-                [arrPhone addObject:model.telephone];
-                [arrCustomer addObject:model];
+                model2 = [[CustomerModel alloc] init];
+                model2.shops_id = groupDic[@"shops_id"];
+                model2.first_name = groupDic[@"first_name"];
+                model2.last_name = groupDic[@"last_name"];
+                model2.birthday = groupDic[@"birthday"];
+                model2.address = groupDic[@"address"];
+                model2.telephone = groupDic[@"telephone"];
+                model2.email = groupDic[@"email"];
+                NSString *name = [NSString stringWithFormat:@"%@ %@", model2.first_name, model2.last_name];
+                [arrName2 addObject:name];
+                [arrPhone addObject:model2.telephone];
+                [arrCustomer addObject:model2];
             }
             
             [self.tableView reloadData];
@@ -136,7 +136,7 @@ NSMutableArray *arrPhone;
     cell.delegate = self;
 
     UIImage *image = [UIImage imageNamed:@"checked-icon.png"];
-    cell.lblName.text = arrName[indexPath.row];
+    cell.lblName.text = arrName2[indexPath.row];
     cell.lblPhone.text = arrPhone[indexPath.row];
 //    if([arrStatus[indexPath.row]  isEqual: @"0"]){
 //        image = [UIImage imageNamed:@"uncheck-icon.png"];
