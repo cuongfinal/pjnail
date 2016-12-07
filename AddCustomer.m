@@ -10,9 +10,11 @@
 #import "AFNetworking.h"
 #import "DefineClass.h"
 #import "AppDelegate.h"
+#import "BillingListController.h"
 
 @implementation AddCustomer
 
+UIAlertView *alert;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,6 +34,7 @@
     
 }
 - (IBAction)clickRegister:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
     
     NSString *swValue = [NSString stringWithFormat:@"%d",(self.swFavorite.isOn ? 0:1)];
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -42,7 +45,7 @@
     
     NSString *urlCreate = [NSString stringWithFormat: @"%@?udid=%@", @CreateCustomer, @"68753A44-4D6F-1226-9C60-0050E4C00067"];
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error]; // Convert parameter to NSDATA
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]; // Convert data into string using NSUTF8StringEncoding
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]; //Intialialize AFURLSessionManager
     
@@ -58,18 +61,33 @@
             NSDictionary *jsonDict = (NSDictionary *) responseObject;
             NSString *status = [jsonDict objectForKey:@"status"];
             if([status isEqualToString:@"success"]){
-                [self performSegueWithIdentifier:@"shop_login_success" sender:self];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Create Bill" message:@"Do you want to create new bill for this customer" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
+                [alert setTag:1];
+                [alert show];
             }
         } else {
             NSLog(@"Error: %@, %@, %@", error, response, responseObject);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Your username or password is incorrect" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-            [alert setTag:1];
+            alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Your username or password is incorrect" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+            [alert setTag:100];
             [alert show];
         }
         
     }]resume];
 
 }
+
+//click on alert
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(alert.tag == 100){
+        if (buttonIndex == 0)
+        {
+            
+            
+        }
+    }
+}
+
+//date picker
 -(void) birthDayTextField:(id)sender
 {
     UIDatePicker *picker = (UIDatePicker*)_txtBirthday.inputView;

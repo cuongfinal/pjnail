@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddCustomer : UIViewController<UITextFieldDelegate>
+@interface AddCustomer : UIViewController<UITextFieldDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *btnRegister;
 @property (weak, nonatomic) IBOutlet UITextField *txtBirthday;
 @property (weak, nonatomic) IBOutlet UITextField *txtFirstName;

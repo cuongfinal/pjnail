@@ -23,7 +23,7 @@ NSMutableArray *arrService;
 @implementation BillingListController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"Customer List", nil);
+    self.title = NSLocalizedString(@"Billing List", nil);
     
     SWRevealViewController *revealController = [self revealViewController];
     
@@ -51,6 +51,10 @@ NSMutableArray *arrService;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:NO];
+    [self.tableView reloadData];
+}
 -(void)addCustomer{
     [self performSegueWithIdentifier:@"add_customer" sender:self];
 }
@@ -73,7 +77,7 @@ NSMutableArray *arrService;
             NSDictionary *jsonDict = (NSDictionary *) responseObject;
             for (NSDictionary *groupDic in jsonDict) {
                 model = [[BillingModel alloc] init];
-                model.name = groupDic[@"customer_name"];
+                model.name = groupDic[@"customer"];
                 model.service = groupDic[@"services"];
                 [arrName addObject:model.name];
                 [arrService addObject:model.service];
@@ -118,7 +122,7 @@ NSMutableArray *arrService;
     
     UIImage *image = [UIImage imageNamed:@"checked-icon.png"];
     cell.lblName.text = arrName[indexPath.row];
-    cell.lblPhone.text = arrService[indexPath.row];
+    cell.lblPhone.text = [NSString stringWithFormat:@"%@",arrService[indexPath.row]];
     //    if([arrStatus[indexPath.row]  isEqual: @"0"]){
     //        image = [UIImage imageNamed:@"uncheck-icon.png"];
     //    }
