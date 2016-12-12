@@ -16,7 +16,8 @@
 #define CustomerList URL "api/customers"
 #define CreateCustomer URL "api/customers"
 #define BillingList URL "api/billings"
-
+#define CreateBill URL "api/billings"
+#define BillingDetails URL "api/billings"
 @interface DefineClass : NSObject
 
 @end

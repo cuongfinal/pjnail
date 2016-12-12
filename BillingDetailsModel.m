@@ -6,8 +6,8 @@
 //  Copyright © 2016 LQTC. All rights reserved.
 //
 
-#import "BillingModel.h"
+#import "BillingDetailsModel.h"
 
-@implementation BillingModel
+@implementation BillingDetailsModel
 
 @end

@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UISwitch *swFavorite;
 @property (weak, nonatomic) IBOutlet UITextField *txtLastVisit;
 @property (weak, nonatomic) IBOutlet UITextField *txtServices;
+@property (strong, nonatomic) NSString *customerIDRegistered;
 
 - (IBAction)clickRegister:(id)sender;
 @end

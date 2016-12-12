@@ -34,7 +34,7 @@ UIAlertView *alert;
     
 }
 - (IBAction)clickRegister:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+
     
     NSString *swValue = [NSString stringWithFormat:@"%d",(self.swFavorite.isOn ? 0:1)];
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -59,16 +59,18 @@ UIAlertView *alert;
     [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         if (!error) {
             NSDictionary *jsonDict = (NSDictionary *) responseObject;
+            NSDictionary *arrData = [jsonDict objectForKey:@"data"];
+            _customerIDRegistered = [NSString stringWithFormat:@"%@", arrData[@"id"]];
+            
             NSString *status = [jsonDict objectForKey:@"status"];
             if([status isEqualToString:@"success"]){
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Create Bill" message:@"Do you want to create new bill for this customer" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
-                [alert setTag:1];
+                [alert setTag:100];
                 [alert show];
             }
         } else {
             NSLog(@"Error: %@, %@, %@", error, response, responseObject);
-            alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Your username or password is incorrect" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-            [alert setTag:100];
+            alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Can not create customer, Please try again" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
             [alert show];
         }
         
@@ -76,14 +78,59 @@ UIAlertView *alert;
 
 }
 
+-(void)createBill{
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSString *token = appDelegate.token;
+    
+    NSError *error;      // Initialize NSError
+    NSDictionary *paramsArr = @{@"services_id": @"1", @"employees_id": @"1"};
+    NSMutableArray *arr = [NSMutableArray arrayWithObjects:paramsArr,nil];
+    
+    NSDictionary *parameters = @{@"customers_id": _customerIDRegistered, @"services": arr};
+    
+    NSString *urlCreate = [NSString stringWithFormat: @"%@?udid=%@", @CreateBill, @"68753A44-4D6F-1226-9C60-0050E4C00067"];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error]; // Convert parameter to NSDATA
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]; //Intialialize AFURLSessionManager
+    
+    NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlCreate parameters:nil error:nil];
+    req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
+    [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [req setValue:token forHTTPHeaderField:@"Authorization"];
+    [req setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        if (!error) {
+            NSDictionary *jsonDict = (NSDictionary *) responseObject;
+            NSString *status = [jsonDict objectForKey:@"status"];
+            if([status isEqualToString:@"success"]){
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Bill Create Successfull" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                [alert setTag:101];
+                [alert show];
+            }
+
+        } else {
+            NSLog(@"Error: %@, %@, %@", error, response, responseObject);
+            alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Can not create Bill, Please try again" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+            [alert show];
+        }
+        
+    }]resume];
+    
+}
+
 //click on alert
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if(alert.tag == 100){
+    if(alertView.tag == 100){
         if (buttonIndex == 0)
         {
-            
-            
+            [self createBill];
         }
+    }
+    else if(alertView.tag == 101){
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 

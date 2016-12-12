@@ -41,9 +41,9 @@ NSMutableArray *arrService;
     self.navigationItem.rightBarButtonItem = addCustomerButtonItem;
     
     
-    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    NSString *token = appDelegate.token;
-    [self getBillingList:token];
+//    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+//    NSString *token = appDelegate.token;
+//    [self getBillingList:token];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -53,7 +53,10 @@ NSMutableArray *arrService;
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:NO];
-    [self.tableView reloadData];
+    
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSString *token = appDelegate.token;
+    [self getBillingList:token];
 }
 -(void)addCustomer{
     [self performSegueWithIdentifier:@"add_customer" sender:self];
@@ -83,7 +86,6 @@ NSMutableArray *arrService;
                 [arrService addObject:model.service];
                 [arrBill addObject:model];
             }
-            
             [self.tableView reloadData];
         } else {
             NSLog(@"Error: %@, %@, %@", error, response, responseObject);
@@ -134,7 +136,7 @@ NSMutableArray *arrService;
     switch (index) {
         case 0:
         {
-            [self performSegueWithIdentifier:@"show_customer_details" sender:self];
+            [self performSegueWithIdentifier:@"show_billing_details" sender:self];
             break;
         }
         default:

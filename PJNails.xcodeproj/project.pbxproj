@@ -14,7 +14,6 @@
 		000A98771DF4A56500D9FB52 /* AddCustomer.m in Sources */ = {isa = PBXBuildFile; fileRef = 000A98761DF4A56500D9FB52 /* AddCustomer.m */; };
 		000A987B1DF5E9E100D9FB52 /* BillingListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 000A987A1DF5E9E100D9FB52 /* BillingListController.m */; };
 		000A987E1DF5EB8F00D9FB52 /* BillingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 000A987D1DF5EB8F00D9FB52 /* BillingListCell.m */; };
-		000A98811DF5EBF100D9FB52 /* BillingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 000A98801DF5EBF100D9FB52 /* BillingModel.m */; };
 		007C3CE81DF0782400859ED5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007C3CE71DF0782400859ED5 /* SWRevealViewController.m */; };
 		007C3CEB1DF0A25E00859ED5 /* reveal-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 007C3CE91DF0A25E00859ED5 /* reveal-icon.png */; };
 		007C3CEC1DF0A25E00859ED5 /* reveal-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 007C3CEA1DF0A25E00859ED5 /* reveal-icon@2x.png */; };
@@ -30,6 +29,9 @@
 		6A3758F41DEECCCC001FCEE4 /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3758E61DEECCCC001FCEE4 /* SWTableViewCell.m */; };
 		6A3758F51DEECCCC001FCEE4 /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3758E81DEECCCC001FCEE4 /* SWUtilityButtonTapGestureRecognizer.m */; };
 		6A3758F61DEECCCC001FCEE4 /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3758EA1DEECCCC001FCEE4 /* SWUtilityButtonView.m */; };
+		6A93E2471DFE9B3400F1DF32 /* BillingDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A93E2461DFE9B3400F1DF32 /* BillingDetailsViewController.m */; };
+		6A93E24A1DFE9CB800F1DF32 /* BillingDetailsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A93E2491DFE9CB800F1DF32 /* BillingDetailsModel.m */; };
+		6A93E24D1DFE9D3900F1DF32 /* BillingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A93E24C1DFE9D3900F1DF32 /* BillingModel.m */; };
 		A2972AC41CDAE729004051D1 /* CustomerRegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2972AC31CDAE729004051D1 /* CustomerRegisterController.m */; };
 		A2972AC81CDB2CCA004051D1 /* CustomerAppointmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2972AC71CDB2CCA004051D1 /* CustomerAppointmentController.m */; };
 		A2CB06961CD1B968000F66A8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CB068B1CD1B968000F66A8 /* AppDelegate.m */; };
@@ -83,8 +85,6 @@
 		000A987A1DF5E9E100D9FB52 /* BillingListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillingListController.m; sourceTree = "<group>"; };
 		000A987C1DF5EB8F00D9FB52 /* BillingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillingListCell.h; sourceTree = "<group>"; };
 		000A987D1DF5EB8F00D9FB52 /* BillingListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillingListCell.m; sourceTree = "<group>"; };
-		000A987F1DF5EBF100D9FB52 /* BillingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillingModel.h; sourceTree = "<group>"; };
-		000A98801DF5EBF100D9FB52 /* BillingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillingModel.m; sourceTree = "<group>"; };
 		007C3CE61DF0782400859ED5 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
 		007C3CE71DF0782400859ED5 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
 		007C3CE91DF0A25E00859ED5 /* reveal-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reveal-icon.png"; path = "PJNails/Resource/Image/reveal-icon.png"; sourceTree = "<group>"; };
@@ -114,6 +114,12 @@
 		6A3758E81DEECCCC001FCEE4 /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonTapGestureRecognizer.m; sourceTree = "<group>"; };
 		6A3758E91DEECCCC001FCEE4 /* SWUtilityButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonView.h; sourceTree = "<group>"; };
 		6A3758EA1DEECCCC001FCEE4 /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonView.m; sourceTree = "<group>"; };
+		6A93E2451DFE9B3400F1DF32 /* BillingDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillingDetailsViewController.h; sourceTree = "<group>"; };
+		6A93E2461DFE9B3400F1DF32 /* BillingDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillingDetailsViewController.m; sourceTree = "<group>"; };
+		6A93E2481DFE9CB800F1DF32 /* BillingDetailsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillingDetailsModel.h; sourceTree = "<group>"; };
+		6A93E2491DFE9CB800F1DF32 /* BillingDetailsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillingDetailsModel.m; sourceTree = "<group>"; };
+		6A93E24B1DFE9D3900F1DF32 /* BillingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillingModel.h; sourceTree = "<group>"; };
+		6A93E24C1DFE9D3900F1DF32 /* BillingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillingModel.m; sourceTree = "<group>"; };
 		A2972AC21CDAE729004051D1 /* CustomerRegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerRegisterController.h; sourceTree = "<group>"; };
 		A2972AC31CDAE729004051D1 /* CustomerRegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerRegisterController.m; sourceTree = "<group>"; };
 		A2972AC61CDB2CCA004051D1 /* CustomerAppointmentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerAppointmentController.h; sourceTree = "<group>"; };
@@ -192,6 +198,7 @@
 				A2CB06D71CD1F0F3000F66A8 /* CustomerList */,
 				000A986F1DF4531500D9FB52 /* CustomerDetails */,
 				000A98781DF5E76D00D9FB52 /* BillingList */,
+				6A93E2441DFE90B700F1DF32 /* BillingDetails */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -212,8 +219,8 @@
 				000A987A1DF5E9E100D9FB52 /* BillingListController.m */,
 				000A987C1DF5EB8F00D9FB52 /* BillingListCell.h */,
 				000A987D1DF5EB8F00D9FB52 /* BillingListCell.m */,
-				000A987F1DF5EBF100D9FB52 /* BillingModel.h */,
-				000A98801DF5EBF100D9FB52 /* BillingModel.m */,
+				6A93E24B1DFE9D3900F1DF32 /* BillingModel.h */,
+				6A93E24C1DFE9D3900F1DF32 /* BillingModel.m */,
 			);
 			name = BillingList;
 			sourceTree = "<group>";
@@ -275,6 +282,17 @@
 				6A3758EA1DEECCCC001FCEE4 /* SWUtilityButtonView.m */,
 			);
 			path = SWTable;
+			sourceTree = "<group>";
+		};
+		6A93E2441DFE90B700F1DF32 /* BillingDetails */ = {
+			isa = PBXGroup;
+			children = (
+				6A93E2451DFE9B3400F1DF32 /* BillingDetailsViewController.h */,
+				6A93E2461DFE9B3400F1DF32 /* BillingDetailsViewController.m */,
+				6A93E2481DFE9CB800F1DF32 /* BillingDetailsModel.h */,
+				6A93E2491DFE9CB800F1DF32 /* BillingDetailsModel.m */,
+			);
+			name = BillingDetails;
 			sourceTree = "<group>";
 		};
 		A2972AC11CDAE286004051D1 /* CustomerRegister */ = {
@@ -534,6 +552,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2CB06B21CD1C788000F66A8 /* UserMain.m in Sources */,
+				6A93E2471DFE9B3400F1DF32 /* BillingDetailsViewController.m in Sources */,
 				A2972AC81CDB2CCA004051D1 /* CustomerAppointmentController.m in Sources */,
 				000A98721DF4535A00D9FB52 /* CustomerDetailsController.m in Sources */,
 				A2972AC41CDAE729004051D1 /* CustomerRegisterController.m in Sources */,
@@ -552,7 +571,6 @@
 				000A987B1DF5E9E100D9FB52 /* BillingListController.m in Sources */,
 				6A3758ED1DEECCCC001FCEE4 /* AFSecurityPolicy.m in Sources */,
 				6A3758F41DEECCCC001FCEE4 /* SWTableViewCell.m in Sources */,
-				000A98811DF5EBF100D9FB52 /* BillingModel.m in Sources */,
 				007C3CE81DF0782400859ED5 /* SWRevealViewController.m in Sources */,
 				A2CB069C1CD1B968000F66A8 /* main.m in Sources */,
 				6A3758F61DEECCCC001FCEE4 /* SWUtilityButtonView.m in Sources */,
@@ -561,6 +579,8 @@
 				A2CB069E1CD1B968000F66A8 /* LoginController.m in Sources */,
 				000A98771DF4A56500D9FB52 /* AddCustomer.m in Sources */,
 				A2CB06961CD1B968000F66A8 /* AppDelegate.m in Sources */,
+				6A93E24A1DFE9CB800F1DF32 /* BillingDetailsModel.m in Sources */,
+				6A93E24D1DFE9D3900F1DF32 /* BillingModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

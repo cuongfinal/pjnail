@@ -2,7 +2,7 @@
 //  BillingModel.h
 //  PJNails
 //
-//  Created by lehongphong on 12/6/16.
+//  Created by LQTCuong on 12/12/16.
 //  Copyright © 2016 LQTC. All rights reserved.
 //
 
