@@ -10,6 +10,7 @@
 
 @interface BillingModel : NSObject
 
+@property (nonatomic) NSString *billID;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *service;
 

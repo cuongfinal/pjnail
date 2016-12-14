@@ -8,6 +8,7 @@
 
 #import "BillingListController.h"
 #import "BillingListCell.h"
+#import "BillingDetailsViewController.h"
 #import "SWRevealViewController.h"
 #import "AFNetworking.h"
 #import "DefineClass.h"
@@ -62,11 +63,6 @@ NSMutableArray *arrService;
     [self performSegueWithIdentifier:@"add_customer" sender:self];
 }
 -(void)getBillingList:(NSString*)token{
-    arrBill = [[NSMutableArray alloc] init];
-    arrName = [[NSMutableArray alloc] init];
-    arrService = [[NSMutableArray alloc] init];
-    
-    
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]; //Intialialize AFURLSessionManager
     NSString *urlCustomerList = [NSString stringWithFormat: @"%@?udid=%@", @BillingList, @"68753A44-4D6F-1226-9C60-0050E4C00067"];
     NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"GET" URLString:urlCustomerList parameters:nil error:nil];
@@ -77,11 +73,16 @@ NSMutableArray *arrService;
     
     [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         if (!error) {
+            arrBill = [[NSMutableArray alloc] init];
+            arrName = [[NSMutableArray alloc] init];
+            arrService = [[NSMutableArray alloc] init];
+            
             NSDictionary *jsonDict = (NSDictionary *) responseObject;
             for (NSDictionary *groupDic in jsonDict) {
                 model = [[BillingModel alloc] init];
                 model.name = groupDic[@"customer"];
                 model.service = groupDic[@"services"];
+                model.billID = [NSString stringWithFormat:@"%@", groupDic[@"id"]];
                 [arrName addObject:model.name];
                 [arrService addObject:model.service];
                 [arrBill addObject:model];
@@ -114,9 +115,8 @@ NSMutableArray *arrService;
     NSMutableArray *leftUtilityButtons = [NSMutableArray new];
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
     
-    [rightUtilityButtons sw_addUtilityButtonWithColor:
-     [UIColor colorWithRed:0.95 green:0.61 blue:0.07 alpha:1.0]
-                                                title:@"Detail"];
+    [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:0.75 green:0.22 blue:0.17 alpha:1.0]
+                                                title:@"Delete"];
     
     cell.leftUtilityButtons = leftUtilityButtons;
     cell.rightUtilityButtons = rightUtilityButtons;
@@ -143,15 +143,19 @@ NSMutableArray *arrService;
             break;
     }
 }
-
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqualToString:@"show_customer_details"]) {
-//        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-//        CustomerDetailsController *customer = segue.destinationViewController;
-//        customer.arrDetails = [[NSMutableArray alloc] init];
-//        [customer.arrDetails addObject:[arrCustomer objectAtIndex:indexPath.row]];
-//        NSLog(@"%@", customer.arrDetails);
-//    }
-//}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // set Segue Identifier from your first viewcontroller to second viewController in stoaryboard
+    [self performSegueWithIdentifier:@"show_billing_details" sender:indexPath];
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"show_billing_details"]) {
+        NSIndexPath *indexPath = (NSIndexPath *)sender;
+        BillingModel *model = arrBill[indexPath.row];
+        NSString *billID = model.billID;
+        BillingDetailsViewController *billingDetails = segue.destinationViewController;
+        [billingDetails getDetails:[NSString stringWithFormat:@"%@", billID]];
+    }
+}
 
 @end

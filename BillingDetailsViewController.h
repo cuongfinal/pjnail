@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SWTableViewCell.h"
 
-@interface BillingDetailsViewController : UIViewController
+@interface BillingDetailsViewController : UIViewController  <SWTableViewCellDelegate,UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *lblPaymentType;
 @property (weak, nonatomic) IBOutlet UILabel *lblReceive;
 @property (weak, nonatomic) IBOutlet UILabel *lblNote;
@@ -20,5 +21,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblDiscount;
 @property (weak, nonatomic) IBOutlet UILabel *lblTip;
 @property (weak, nonatomic) IBOutlet UITableView *tbServicesList;
-
+-(void)getDetails:(NSString*)billID;
 @end
