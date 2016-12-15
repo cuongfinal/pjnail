@@ -11,7 +11,7 @@
 #import "DefineClass.h"
 #import "AppDelegate.h"
 #import "BillingListController.h"
-
+#import "MBProgressHUD.h"
 @implementation AddCustomer
 
 UIAlertView *alert;
@@ -35,6 +35,9 @@ UIAlertView *alert;
 }
 - (IBAction)clickRegister:(id)sender {
 
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.label.text = @"Loading";
     
     NSString *swValue = [NSString stringWithFormat:@"%d",(self.swFavorite.isOn ? 0:1)];
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -58,6 +61,7 @@ UIAlertView *alert;
     
     [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         if (!error) {
+            [hud hideAnimated:YES];
             NSDictionary *jsonDict = (NSDictionary *) responseObject;
             NSDictionary *arrData = [jsonDict objectForKey:@"data"];
             _customerIDRegistered = [NSString stringWithFormat:@"%@", arrData[@"id"]];
@@ -79,6 +83,10 @@ UIAlertView *alert;
 }
 
 -(void)createBill{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.label.text = @"Loading";
+    
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     NSString *token = appDelegate.token;
     
@@ -103,6 +111,7 @@ UIAlertView *alert;
     
     [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         if (!error) {
+            [hud hideAnimated:YES];
             NSDictionary *jsonDict = (NSDictionary *) responseObject;
             NSString *status = [jsonDict objectForKey:@"status"];
             if([status isEqualToString:@"success"]){

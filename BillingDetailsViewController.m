@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "BillingDetailsModel.h"
 #import "BillingDetailsCell.h"
+#import "MBProgressHUD.h"
 
 @interface BillingDetailsViewController ()
 @end
@@ -46,14 +47,17 @@ NSMutableArray *arrServices;
 
 -(void)getDetails:(NSString*)billID{
     
-    arrServices = [[NSMutableArray alloc] init];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.label.text = @"Loading";
     
+    arrServices = [[NSMutableArray alloc] init];
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     NSString *token = appDelegate.token;
     
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]; //Intialialize AFURLSessionManager
-    NSString *urlCustomerList = [NSString stringWithFormat: @"%@/%@?udid=%@", @BillingDetails,billID, @"68753A44-4D6F-1226-9C60-0050E4C00067"];
-    NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"GET" URLString:urlCustomerList parameters:nil error:nil];
+    NSString *urlBillDetails = [NSString stringWithFormat: @"%@/%@?udid=%@", @BillingDetails,billID, @"68753A44-4D6F-1226-9C60-0050E4C00067"];
+    NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"GET" URLString:urlBillDetails parameters:nil error:nil];
     req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
     [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
@@ -61,6 +65,7 @@ NSMutableArray *arrServices;
     
     [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         if (!error) {
+            [hud hideAnimated:YES];
             NSDictionary *groupDic = (NSDictionary *) responseObject;
             NSDictionary *servicesDict = [groupDic objectForKey:@"services"];
             BOOL isDone = [groupDic[@"done"] boolValue];
@@ -78,6 +83,8 @@ NSMutableArray *arrServices;
             
             for(NSDictionary *services in servicesDict){
                 servicesModel = [[ServicesModel alloc] init];
+                servicesModel.serviceID = [NSString stringWithFormat:@"%@", [services[@"id"] isKindOfClass:[NSNull class]] ? @"0" : services[@"id"]];
+                servicesModel.billID = [NSString stringWithFormat:@"%@", [billID isKindOfClass:[NSNull class]] ? @"0" : billID];
                 servicesModel.service_name = [services[@"service_name"] isKindOfClass:[NSNull class]] ? @"No Data" : services[@"service_name"];
                 servicesModel.employee_name = [services[@"employee_name"] isKindOfClass:[NSNull class]] ? @"No Data" : services[@"employee_name"];
                 servicesModel.price = [NSString stringWithFormat:@"%@", [services[@"price"] isKindOfClass:[NSNull class]] ? @"0" : services[@"price"]];
@@ -112,16 +119,6 @@ NSMutableArray *arrServices;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BillingDetailsCell *cell = (BillingDetailsCell *)[tableView dequeueReusableCellWithIdentifier:@"servicesCell" forIndexPath:indexPath];
     
-//    // Add utility buttons
-//    NSMutableArray *leftUtilityButtons = [NSMutableArray new];
-//    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
-//    
-//    [rightUtilityButtons sw_addUtilityButtonWithColor:
-//     [UIColor colorWithRed:0.95 green:0.61 blue:0.07 alpha:1.0]
-//                                                title:@"Detail"];
-//    
-//    cell.leftUtilityButtons = leftUtilityButtons;
-//    cell.rightUtilityButtons = rightUtilityButtons;
     ServicesModel *model = arrServices[indexPath.row];
     cell.lblServicesName.text = model.service_name;
     cell.lblEmployeeName.text = model.employee_name;
@@ -135,6 +132,59 @@ NSMutableArray *arrServices;
     [cell.imgServices setImage:image];
     
     return cell;
+}
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.label.text = @"Loading";
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        NSString *token = appDelegate.token;
+        
+        AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]; //Intialialize AFURLSessionManager
+        
+        NSError *error;
+        ServicesModel *model = arrServices[indexPath.row];
+        NSString *billID = model.billID;
+        NSString *serviceID = model.serviceID;
+        NSMutableArray *arr = [NSMutableArray arrayWithObjects:serviceID,nil];
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:arr options:0 error:&error]; // Convert parameter to NSDATA
+        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        
+        NSString *urlDeleteBill = [NSString stringWithFormat: @"%@/%@?udid=%@", @BillRemoveService,billID, @"68753A44-4D6F-1226-9C60-0050E4C00067"];
+        NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlDeleteBill parameters:nil error:nil];
+        req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
+        [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [req setValue:token forHTTPHeaderField:@"Authorization"];
+        [req setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+            if (!error) {
+                [hud hideAnimated:YES];
+                NSDictionary *jsonDict = (NSDictionary *) responseObject;
+                NSString *status = [jsonDict objectForKey:@"status"];
+                if([status isEqualToString:@"success"]){
+                    [arrServices removeObjectAtIndex:indexPath.row];
+                    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+                }
+                else{
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Delete Services Error" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                    [alert setTag:1];
+                    [alert show];
+                }
+            } else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Delete Services Error" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                [alert setTag:1];
+                [alert show];
+            }
+            
+        }]resume];
+    }
 }
 
 /*

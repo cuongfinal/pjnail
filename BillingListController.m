@@ -15,6 +15,7 @@
 #import "AppDelegate.h"
 #import "LoginController.h"
 #import "BillingModel.h"
+#import "MBProgressHUD.h"
 
 BillingModel *model;
 NSMutableArray *arrBill;
@@ -63,6 +64,10 @@ NSMutableArray *arrService;
     [self performSegueWithIdentifier:@"add_customer" sender:self];
 }
 -(void)getBillingList:(NSString*)token{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.label.text = @"Loading";
+    
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]; //Intialialize AFURLSessionManager
     NSString *urlCustomerList = [NSString stringWithFormat: @"%@?udid=%@", @BillingList, @"68753A44-4D6F-1226-9C60-0050E4C00067"];
     NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"GET" URLString:urlCustomerList parameters:nil error:nil];
@@ -73,6 +78,7 @@ NSMutableArray *arrService;
     
     [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         if (!error) {
+            [hud hideAnimated:YES];
             arrBill = [[NSMutableArray alloc] init];
             arrName = [[NSMutableArray alloc] init];
             arrService = [[NSMutableArray alloc] init];
@@ -111,37 +117,64 @@ NSMutableArray *arrService;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BillingListCell *cell = (BillingListCell *)[tableView dequeueReusableCellWithIdentifier:@"BillingListCell" forIndexPath:indexPath];
     
-    // Add utility buttons
-    NSMutableArray *leftUtilityButtons = [NSMutableArray new];
-    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
-    
-    [rightUtilityButtons sw_addUtilityButtonWithColor: [UIColor colorWithRed:0.75 green:0.22 blue:0.17 alpha:1.0]
-                                                title:@"Delete"];
-    
-    cell.leftUtilityButtons = leftUtilityButtons;
-    cell.rightUtilityButtons = rightUtilityButtons;
     cell.delegate = self;
     
     UIImage *image = [UIImage imageNamed:@"checked-icon.png"];
     cell.lblName.text = arrName[indexPath.row];
     cell.lblPhone.text = [NSString stringWithFormat:@"%@",arrService[indexPath.row]];
-    //    if([arrStatus[indexPath.row]  isEqual: @"0"]){
-    //        image = [UIImage imageNamed:@"uncheck-icon.png"];
-    //    }
-    //    [cell.imgStatus setImage:image];
     
     return cell;
 }
-- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
-    switch (index) {
-        case 0:
-        {
-            [self performSegueWithIdentifier:@"show_billing_details" sender:self];
-            break;
-        }
-        default:
-            break;
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.label.text = @"Loading";
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        NSString *token = appDelegate.token;
+        
+        AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]; //Intialialize AFURLSessionManager
+        
+        BillingModel *model = arrBill[indexPath.row];
+        NSString *billID = model.billID;
+        NSString *urlDeleteBill = [NSString stringWithFormat: @"%@/%@?udid=%@", @BillingDetails,billID, @"68753A44-4D6F-1226-9C60-0050E4C00067"];
+        NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"DELETE" URLString:urlDeleteBill parameters:nil error:nil];
+        req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
+        [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [req setValue:token forHTTPHeaderField:@"Authorization"];
+        
+        [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+            if (!error) {
+                [hud hideAnimated:YES];
+                NSDictionary *jsonDict = (NSDictionary *) responseObject;
+                NSString *status = [jsonDict objectForKey:@"status"];
+                if([status isEqualToString:@"success"]){
+                    [arrBill removeObjectAtIndex:indexPath.row];
+                    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+                }
+                else{
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Delete Error" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                    [alert setTag:1];
+                    [alert show];
+                }
+            } else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Delete Error" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                [alert setTag:1];
+                [alert show];
+            }
+            
+        }]resume];
     }
+}
+-(void)deleteBill:(NSIndexPath*)indexPath sender:(id)sender{
+    
+
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

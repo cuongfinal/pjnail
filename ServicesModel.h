@@ -10,6 +10,8 @@
 
 @interface ServicesModel : NSObject
 
+@property (nonatomic) NSString *billID;
+@property (nonatomic) NSString *serviceID;
 @property (nonatomic) NSString *service_name;
 @property (nonatomic) NSString *employee_name;
 @property (nonatomic) NSString *price;

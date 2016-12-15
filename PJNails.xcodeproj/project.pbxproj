@@ -33,6 +33,7 @@
 		6A93E2471DFE9B3400F1DF32 /* BillingDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A93E2461DFE9B3400F1DF32 /* BillingDetailsViewController.m */; };
 		6A93E24A1DFE9CB800F1DF32 /* BillingDetailsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A93E2491DFE9CB800F1DF32 /* BillingDetailsModel.m */; };
 		6A93E24D1DFE9D3900F1DF32 /* BillingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A93E24C1DFE9D3900F1DF32 /* BillingModel.m */; };
+		6AD1C4251E02A36E007178DB /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD1C4241E02A36E007178DB /* MBProgressHUD.m */; };
 		6AE343D51E0121B500CA7FC8 /* BillingDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE343D41E0121B500CA7FC8 /* BillingDetailsCell.m */; };
 		6AE343D71E01240A00CA7FC8 /* services.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE343D61E01240A00CA7FC8 /* services.png */; };
 		A2972AC41CDAE729004051D1 /* CustomerRegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2972AC31CDAE729004051D1 /* CustomerRegisterController.m */; };
@@ -125,6 +126,8 @@
 		6A93E2491DFE9CB800F1DF32 /* BillingDetailsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillingDetailsModel.m; sourceTree = "<group>"; };
 		6A93E24B1DFE9D3900F1DF32 /* BillingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillingModel.h; sourceTree = "<group>"; };
 		6A93E24C1DFE9D3900F1DF32 /* BillingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillingModel.m; sourceTree = "<group>"; };
+		6AD1C4231E02A36E007178DB /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		6AD1C4241E02A36E007178DB /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		6AE343D31E0121B500CA7FC8 /* BillingDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillingDetailsCell.h; sourceTree = "<group>"; };
 		6AE343D41E0121B500CA7FC8 /* BillingDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillingDetailsCell.m; sourceTree = "<group>"; };
 		6AE343D61E01240A00CA7FC8 /* services.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = services.png; path = PJNails/Resource/Image/services.png; sourceTree = "<group>"; };
@@ -245,6 +248,7 @@
 		6A3758CF1DEECCCC001FCEE4 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				6AD1C4221E02A36E007178DB /* MBProgressHUD */,
 				007C3CE51DF0780000859ED5 /* SWRevealViewController */,
 				6A3758D01DEECCCC001FCEE4 /* AFNetworking */,
 				6A3758DE1DEECCCC001FCEE4 /* SWTable */,
@@ -305,6 +309,15 @@
 				6AE343D41E0121B500CA7FC8 /* BillingDetailsCell.m */,
 			);
 			name = BillingDetails;
+			sourceTree = "<group>";
+		};
+		6AD1C4221E02A36E007178DB /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				6AD1C4231E02A36E007178DB /* MBProgressHUD.h */,
+				6AD1C4241E02A36E007178DB /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		A2972AC11CDAE286004051D1 /* CustomerRegister */ = {
@@ -569,6 +582,7 @@
 				6A93E2471DFE9B3400F1DF32 /* BillingDetailsViewController.m in Sources */,
 				A2972AC81CDB2CCA004051D1 /* CustomerAppointmentController.m in Sources */,
 				000A98721DF4535A00D9FB52 /* CustomerDetailsController.m in Sources */,
+				6AD1C4251E02A36E007178DB /* MBProgressHUD.m in Sources */,
 				A2972AC41CDAE729004051D1 /* CustomerRegisterController.m in Sources */,
 				6A3758F01DEECCCC001FCEE4 /* AFURLSessionManager.m in Sources */,
 				6A3758F51DEECCCC001FCEE4 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,

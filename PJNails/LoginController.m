@@ -11,7 +11,7 @@
 #import "SWRevealViewController.h"
 #import "DefineClass.h"
 #import "AppDelegate.h"
-
+#import "MBProgressHUD.h"
 @interface LoginController ()
 
 @end
@@ -49,6 +49,10 @@
 }
 
 -(void)doLoginShop:(NSString*)token{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.label.text = @"Loading";
+    
     NSError *error;      // Initialize NSError
     NSDictionary *parameters = @{@"account": [self.txtUsername text], @"password": [self.txtPassword text], @"udid": @"68753A44-4D6F-1226-9C60-0050E4C00067"};
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error]; // Convert parameter to NSDATA
@@ -65,6 +69,7 @@
     
     [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         if (!error) {
+            [hud hideAnimated:YES];
             NSDictionary *jsonDict = (NSDictionary *) responseObject;
             NSString *status = [jsonDict objectForKey:@"status"];
             if([status isEqualToString:@"success"]){
@@ -81,6 +86,10 @@
 }
 
 -(void)doLoginUser:(NSString*)token{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.label.text = @"Loading";
+    
     NSError *error;      // Initialize NSError
     NSDictionary *parameters = @{@"username": [self.txtUsername text], @"password": [self.txtPassword text]};
     NSString *urlLogin = [NSString stringWithFormat: @"%@?udid=%@", @ShopLogin, @"68753A44-4D6F-1226-9C60-0050E4C00067"];
@@ -98,6 +107,7 @@
     
     [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         if (!error) {
+            [hud hideAnimated:YES];
             NSDictionary *jsonDict = (NSDictionary *) responseObject;
             NSString *status = [jsonDict objectForKey:@"status"];
             if([status isEqualToString:@"success"]){

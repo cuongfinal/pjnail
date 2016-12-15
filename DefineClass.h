@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define URL "http://f24915cc.ngrok.io/"
+#define URL "http://ede896f8.ngrok.io/"
 #define GetAccessToken URL "api/api-users/token"
 #define ShopLogin URL "api/shops/login"
 #define UserLogin URL "api/users/login"
@@ -18,6 +18,7 @@
 #define BillingList URL "api/billings"
 #define CreateBill URL "api/billings"
 #define BillingDetails URL "api/billings"
+#define BillRemoveService URL "api/billings/remove-services"
 @interface DefineClass : NSObject
 
 @end
