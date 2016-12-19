@@ -17,6 +17,7 @@
 		007C3CE81DF0782400859ED5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007C3CE71DF0782400859ED5 /* SWRevealViewController.m */; };
 		007C3CEB1DF0A25E00859ED5 /* reveal-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 007C3CE91DF0A25E00859ED5 /* reveal-icon.png */; };
 		007C3CEC1DF0A25E00859ED5 /* reveal-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 007C3CEA1DF0A25E00859ED5 /* reveal-icon@2x.png */; };
+		6A1657BD1E07FAEB00A18F9E /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1657BC1E07FAEB00A18F9E /* PaymentViewController.m */; };
 		6A3758EB1DEECCCC001FCEE4 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3758D21DEECCCC001FCEE4 /* AFHTTPSessionManager.m */; };
 		6A3758EC1DEECCCC001FCEE4 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3758D51DEECCCC001FCEE4 /* AFNetworkReachabilityManager.m */; };
 		6A3758ED1DEECCCC001FCEE4 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3758D71DEECCCC001FCEE4 /* AFSecurityPolicy.m */; };
@@ -93,6 +94,8 @@
 		007C3CE71DF0782400859ED5 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
 		007C3CE91DF0A25E00859ED5 /* reveal-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reveal-icon.png"; path = "PJNails/Resource/Image/reveal-icon.png"; sourceTree = "<group>"; };
 		007C3CEA1DF0A25E00859ED5 /* reveal-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reveal-icon@2x.png"; path = "PJNails/Resource/Image/reveal-icon@2x.png"; sourceTree = "<group>"; };
+		6A1657BB1E07FAEB00A18F9E /* PaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentViewController.h; sourceTree = "<group>"; };
+		6A1657BC1E07FAEB00A18F9E /* PaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentViewController.m; sourceTree = "<group>"; };
 		6A3758D11DEECCCC001FCEE4 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		6A3758D21DEECCCC001FCEE4 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		6A3758D31DEECCCC001FCEE4 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -210,6 +213,7 @@
 				000A986F1DF4531500D9FB52 /* CustomerDetails */,
 				000A98781DF5E76D00D9FB52 /* BillingList */,
 				6A93E2441DFE90B700F1DF32 /* BillingDetails */,
+				6A1657B41E07F09B00A18F9E /* Payment */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -243,6 +247,15 @@
 				007C3CE71DF0782400859ED5 /* SWRevealViewController.m */,
 			);
 			name = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		6A1657B41E07F09B00A18F9E /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				6A1657BB1E07FAEB00A18F9E /* PaymentViewController.h */,
+				6A1657BC1E07FAEB00A18F9E /* PaymentViewController.m */,
+			);
+			name = Payment;
 			sourceTree = "<group>";
 		};
 		6A3758CF1DEECCCC001FCEE4 /* Libs */ = {
@@ -610,6 +623,7 @@
 				000A98771DF4A56500D9FB52 /* AddCustomer.m in Sources */,
 				A2CB06961CD1B968000F66A8 /* AppDelegate.m in Sources */,
 				6A93E24A1DFE9CB800F1DF32 /* BillingDetailsModel.m in Sources */,
+				6A1657BD1E07FAEB00A18F9E /* PaymentViewController.m in Sources */,
 				6A93E24D1DFE9D3900F1DF32 /* BillingModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

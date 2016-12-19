@@ -25,6 +25,12 @@ NSMutableArray *arrServices;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIBarButtonItem *paymentButton = [[UIBarButtonItem alloc] initWithTitle:@"Add Customer" style:UIBarButtonItemStylePlain target:self action:@selector(paymentButton)];
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    self.navigationItem.rightBarButtonItem = paymentButton;
+    
     _lblPaymentType.text = @"";
     _lblReceive.text = @"";
     _lblNote.text = @"";
@@ -38,6 +44,10 @@ NSMutableArray *arrServices;
     
     _tbServicesList.dataSource = self;
     _tbServicesList.delegate = self;
+}
+
+-(void)paymentButton{
+    [self performSegueWithIdentifier:@"add_customer" sender:self];
 }
 
 - (void)didReceiveMemoryWarning {
