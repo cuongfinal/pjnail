@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SWTableViewCell.h"
+#import "AddTipPopUpViewController.h"
 
-@interface PaymentViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UICollectionView *servicesList;
-
+@interface PaymentViewController : UIViewController <SWTableViewCellDelegate,UITableViewDelegate, UITableViewDataSource, AddTipPopUpViewControllerDelegate>
+-(void)getDetails:(NSString*)billID;
+@property (weak, nonatomic) IBOutlet UITableView *tbServicesList;
+@property (weak, nonatomic) IBOutlet UILabel *lblTip;
+@property (weak, nonatomic) IBOutlet UILabel *lblTotal;
+@property (nonatomic, strong) UIPopoverController *addTipPopover;
+@property (nonatomic, strong) NSString *tempTotal;
 @end

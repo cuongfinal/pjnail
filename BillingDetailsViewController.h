@@ -21,5 +21,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblDiscount;
 @property (weak, nonatomic) IBOutlet UILabel *lblTip;
 @property (weak, nonatomic) IBOutlet UITableView *tbServicesList;
+@property (strong, nonatomic) NSString* assignBillID;
+@property (weak, nonatomic) IBOutlet UIButton *btnAddService;
+- (IBAction)tapAdd:(id)sender;
 -(void)getDetails:(NSString*)billID;
 @end

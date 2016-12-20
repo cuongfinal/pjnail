@@ -14,6 +14,8 @@
 #import "BillingDetailsModel.h"
 #import "BillingDetailsCell.h"
 #import "MBProgressHUD.h"
+#import "PaymentViewController.h"
+#import "AddServicePopupController.h"
 
 @interface BillingDetailsViewController ()
 @end
@@ -26,7 +28,7 @@ NSMutableArray *arrServices;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIBarButtonItem *paymentButton = [[UIBarButtonItem alloc] initWithTitle:@"Add Customer" style:UIBarButtonItemStylePlain target:self action:@selector(paymentButton)];
+    UIBarButtonItem *paymentButton = [[UIBarButtonItem alloc] initWithTitle:@"Payment" style:UIBarButtonItemStylePlain target:self action:@selector(paymentButton)];
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     self.navigationItem.rightBarButtonItem = paymentButton;
@@ -47,16 +49,24 @@ NSMutableArray *arrServices;
 }
 
 -(void)paymentButton{
-    [self performSegueWithIdentifier:@"add_customer" sender:self];
+    [self performSegueWithIdentifier:@"show_payment" sender:self];
 }
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"show_payment"]) {
+        PaymentViewController *payment = segue.destinationViewController;
+        [payment getDetails:[NSString stringWithFormat:@"%@", self.assignBillID]];
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)tapAdd:(id)sender {
+}
+
 -(void)getDetails:(NSString*)billID{
-    
+    self.assignBillID = billID;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeAnnularDeterminate;
     hud.label.text = @"Loading";
@@ -103,6 +113,7 @@ NSMutableArray *arrServices;
                 servicesModel.tips = [NSString stringWithFormat:@"%@", [services[@"tips"] isKindOfClass:[NSNull class]] ? @"0" : services[@"tips"]];
                 
                 [arrServices addObject:servicesModel];
+                [arrServices sortUsingDescriptors:[NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"employee_name" ascending:YES], nil]];
             }
             
             [self.tbServicesList reloadData];
