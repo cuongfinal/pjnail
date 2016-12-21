@@ -10,7 +10,7 @@
 
 @protocol AddServicePopupControllerDelegate
 
--(void)userDataChangedWithUsername:(NSString *)username andAgeRange:(NSString *)ageRange andGender:(NSString *)gender;
+-(void)dataChangeServices:(NSString *)servicesItem;
 
 @end
 

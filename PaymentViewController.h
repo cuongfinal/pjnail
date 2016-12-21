@@ -10,7 +10,7 @@
 #import "SWTableViewCell.h"
 #import "AddTipPopUpViewController.h"
 
-@interface PaymentViewController : UIViewController <SWTableViewCellDelegate,UITableViewDelegate, UITableViewDataSource, AddTipPopUpViewControllerDelegate>
+@interface PaymentViewController : UIViewController <SWTableViewCellDelegate,UITableViewDelegate,UITextFieldDelegate, UITableViewDataSource, AddTipPopUpViewControllerDelegate>
 -(void)getDetails:(NSString*)billID;
 @property (weak, nonatomic) IBOutlet UITableView *tbServicesList;
 @property (weak, nonatomic) IBOutlet UILabel *lblTip;

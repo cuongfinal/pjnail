@@ -33,10 +33,8 @@
     
     self.arrAgeRanges = [[NSArray alloc] initWithObjects:@"< 18", @"18 - 25", @"25 - 30", @"30 - 35", @"35 - 40", @">= 40", nil];
     
-    self.txtName.delegate = self;
-    
-    self.pickerAge.delegate = self;
-    self.pickerAge.dataSource = self;
+    self.pickerServices.delegate = self;
+    self.pickerServices.dataSource = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,28 +47,12 @@
 #pragma mark - IBAction method implementation
 
 - (IBAction)done:(id)sender {
-    [self.delegate userDataChangedWithUsername:self.txtName.text
-                                   andAgeRange:[self.arrAgeRanges objectAtIndex:[self.pickerAge selectedRowInComponent:0]]
-                                     andGender:[self.segGender titleForSegmentAtIndex:self.segGender.selectedSegmentIndex]];
+    [self.delegate dataChangeServices:[self.arrAgeRanges objectAtIndex:[self.pickerServices selectedRowInComponent:0]]];
 }
-
-
-#pragma mark - UITextField Delegate method implementation
-
--(BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [self.txtName resignFirstResponder];
-    
-    return YES;
-}
-
-
-#pragma mark - UIPickerView method implementation
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;
 }
-
-
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     return self.arrAgeRanges.count;
 }

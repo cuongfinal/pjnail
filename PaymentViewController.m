@@ -91,6 +91,7 @@ UIBarButtonItem *addTip;
                 [arrayServices addObject:serviceModel];
                 [arrayServices sortUsingDescriptors:[NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"employee_name" ascending:YES], nil]];
                 //sort data
+                
 
             }
             
@@ -103,8 +104,8 @@ UIBarButtonItem *addTip;
         }
     }]resume];
 }
-#pragma mark - Table view data source
 
+#pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -115,25 +116,49 @@ UIBarButtonItem *addTip;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ServicesCell *cell = (ServicesCell *)[tableView dequeueReusableCellWithIdentifier:@"serviceCell" forIndexPath:indexPath];
-//    ServicesModel *previousModel = arrayServices[indexPath.row];
-//    if(indexPath.row == 0){
-//        previousModel = nil;
-//    }
-//    else if(indexPath.row > 0){
-//        previousModel = arrayServices[indexPath.row - 1];
-//    }
+    
+    ServicesModel *previousModel = arrayServices[indexPath.row];
+    if(indexPath.row == 0){
+        previousModel = nil;
+    }
+    else if(indexPath.row > 0){
+        previousModel = arrayServices[indexPath.row - 1];
+    }
+    
     ServicesModel *model = arrayServices[indexPath.row];
+    if(indexPath.row < arrayServices.count-1){
+        ServicesModel *nextModel = arrayServices[indexPath.row + 1];
+        if([model.employee_name isEqualToString:nextModel.employee_name]){
+            cell.separatorInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, cell.bounds.size.width);
+        }
+    }
+    
     cell.lblServicesName.text = model.service_name;
-//    if(![model.employee_name isEqualToString:previousModel.employee_name]){
-    cell.lblEmployee.text = model.employee_name;
-//    }
+    if(![model.employee_name isEqualToString:previousModel.employee_name]){
+        cell.lblEmployee.text = model.employee_name;
+    }
+    else{
+        cell.tfTip.hidden = YES;
+    }
     cell.lblPrice.text = model.price;
     cell.lblShopFee.text = model.shop_fee;
 
     cell.tfTip.text = @"0";
     cell.delegate = self;
     
+    [cell.tfTip addTarget:self
+                  action:@selector(textFieldDidChange:)
+        forControlEvents:UIControlEventEditingChanged];
+    
     return cell;
+}
+
+- (void)textFieldDidChange:(UITextField*)textField{
+    if([textField.text length] > 0){
+        _lblTip.text = textField.text;
+        NSNumber *total = [NSNumber numberWithInt:[_tempTotal intValue] + [textField.text intValue]];
+        _lblTotal.text = [NSString stringWithFormat:@"%@", total];
+    }
 }
 
 /*

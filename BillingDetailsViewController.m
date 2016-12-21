@@ -63,6 +63,11 @@ NSMutableArray *arrServices;
 }
 
 - (IBAction)tapAdd:(id)sender {
+    AddServicePopupController *addServicesController = [[AddServicePopupController alloc] initWithNibName:@"AddServicePopupController" bundle:nil];
+    addServicesController.delegate = self;
+    self.addServicesPopover = [[UIPopoverController alloc] initWithContentViewController:addServicesController];
+    self.addServicesPopover.popoverContentSize = CGSizeMake(320.0, 300);
+    [self.addServicesPopover presentPopoverFromRect:[self.btnAddService frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 
 -(void)getDetails:(NSString*)billID{

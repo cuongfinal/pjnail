@@ -18,5 +18,5 @@
 @property (nonatomic) NSString *shop_fee;
 @property (nonatomic) NSString *discount;
 @property (nonatomic) NSString *tips;
-
+@property (nonatomic) int numberServicesOfEmployee;
 @end

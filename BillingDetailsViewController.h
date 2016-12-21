@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SWTableViewCell.h"
-
-@interface BillingDetailsViewController : UIViewController  <SWTableViewCellDelegate,UITableViewDelegate, UITableViewDataSource>
+#import "AddServicePopupController.h"
+@interface BillingDetailsViewController : UIViewController  <SWTableViewCellDelegate,UITableViewDelegate, UITableViewDataSource,AddServicePopupControllerDelegate>
+@property (nonatomic, strong) UIPopoverController *addServicesPopover;
 @property (weak, nonatomic) IBOutlet UILabel *lblPaymentType;
 @property (weak, nonatomic) IBOutlet UILabel *lblReceive;
 @property (weak, nonatomic) IBOutlet UILabel *lblNote;
@@ -25,4 +26,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnAddService;
 - (IBAction)tapAdd:(id)sender;
 -(void)getDetails:(NSString*)billID;
+
 @end
