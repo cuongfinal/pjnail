@@ -17,4 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblTotal;
 @property (nonatomic, strong) UIPopoverController *addTipPopover;
 @property (nonatomic, strong) NSString *tempTotal;
+@property (nonatomic, strong) NSString *tempBillID;
+@property (weak, nonatomic) IBOutlet UIButton *btnPayment;
+- (IBAction)tapPayment:(id)sender;
 @end

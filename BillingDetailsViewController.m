@@ -47,7 +47,59 @@ NSMutableArray *arrServices;
     _tbServicesList.dataSource = self;
     _tbServicesList.delegate = self;
 }
+-(void)dataChangeServices:(NSString *)servicesItem employees:(NSString *)employees{
+    [self addService:servicesItem employees:employees];
+}
+-(void)addService:(NSString *)servicesItem employees:(NSString *)employees{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.label.text = @"Loading";
+    
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSString *token = appDelegate.token;
+    
+    NSError *error;      // Initialize NSError
+    NSDictionary *paramsArr = @{@"services_id": servicesItem, @"employees_id": employees};
+    NSMutableArray *arr = [NSMutableArray arrayWithObjects:paramsArr,nil];
+    
+    NSDictionary *parameters = @{@"services": arr};
+    
+    NSString *urlAddSv = [NSString stringWithFormat: @"%@/%@?udid=%@", @BillingAddServices, self.assignBillID, @"68753A44-4D6F-1226-9C60-0050E4C00067"];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error]; // Convert parameter to NSDATA
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]; //Intialialize AFURLSessionManager
+    
+    NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlAddSv parameters:nil error:nil];
+    req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
+    [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [req setValue:token forHTTPHeaderField:@"Authorization"];
+    [req setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        if (!error) {
+            [hud hideAnimated:YES];
+            NSDictionary *jsonDict = (NSDictionary *) responseObject;
+            NSString *status = [jsonDict objectForKey:@"status"];
+            NSString *message = [jsonDict objectForKey:@"message"];
+            if([status isEqualToString:@"success"]){
+                [self.addServicesPopover dismissPopoverAnimated:YES];
+                [self getDetails:self.assignBillID];
+            }
+            else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                [alert show];
+            }
+            
+        } else {
+            NSLog(@"Error: %@, %@, %@", error, response, responseObject);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Can not create Bill, Please try again" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+            [alert show];
+        }
+    }]resume];
 
+}
 -(void)paymentButton{
     [self performSegueWithIdentifier:@"show_payment" sender:self];
 }
@@ -66,7 +118,7 @@ NSMutableArray *arrServices;
     AddServicePopupController *addServicesController = [[AddServicePopupController alloc] initWithNibName:@"AddServicePopupController" bundle:nil];
     addServicesController.delegate = self;
     self.addServicesPopover = [[UIPopoverController alloc] initWithContentViewController:addServicesController];
-    self.addServicesPopover.popoverContentSize = CGSizeMake(320.0, 300);
+    self.addServicesPopover.popoverContentSize = CGSizeMake(505.0, 505.0);
     [self.addServicesPopover presentPopoverFromRect:[self.btnAddService frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 
@@ -194,12 +246,14 @@ NSMutableArray *arrServices;
                 [hud hideAnimated:YES];
                 NSDictionary *jsonDict = (NSDictionary *) responseObject;
                 NSString *status = [jsonDict objectForKey:@"status"];
+                NSString *message = [jsonDict objectForKey:@"message"];
                 if([status isEqualToString:@"success"]){
                     [arrServices removeObjectAtIndex:indexPath.row];
                     [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
                 }
                 else{
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Delete Services Error" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+             
                     [alert setTag:1];
                     [alert show];
                 }
@@ -208,7 +262,6 @@ NSMutableArray *arrServices;
                 [alert setTag:1];
                 [alert show];
             }
-            
         }]resume];
     }
 }

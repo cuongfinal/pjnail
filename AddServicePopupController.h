@@ -10,7 +10,7 @@
 
 @protocol AddServicePopupControllerDelegate
 
--(void)dataChangeServices:(NSString *)servicesItem;
+-(void)dataChangeServices:(NSString *)servicesItem employees:(NSString *)employees;
 
 @end
 
@@ -20,6 +20,8 @@
 @property (nonatomic, strong) id<AddServicePopupControllerDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerServices;
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerEmployee;
+@property (strong, nonatomic) NSString* token;
 
 - (IBAction)done:(id)sender;
 

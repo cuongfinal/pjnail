@@ -13,12 +13,20 @@
 #define ShopLogin URL "api/shops/login"
 #define UserLogin URL "api/users/login"
 #define ShopLogin URL "api/shops/login"
+
 #define CustomerList URL "api/customers"
 #define CreateCustomer URL "api/customers"
+
 #define BillingList URL "api/billings"
 #define CreateBill URL "api/billings"
 #define BillingDetails URL "api/billings"
 #define BillRemoveService URL "api/billings/remove-services"
+#define BillingDone URL "api/billings/done"
+#define BillingTip URL "api/billings/tip"
+#define BillingAddServices URL "api/billings/add-services"
+
+#define ServicesList URL "api/services"
+#define EmployeeList URL "api/employees"
 @interface DefineClass : NSObject
 
 @end

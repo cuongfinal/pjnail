@@ -67,9 +67,14 @@ UIAlertView *alert;
             _customerIDRegistered = [NSString stringWithFormat:@"%@", arrData[@"id"]];
             
             NSString *status = [jsonDict objectForKey:@"status"];
+            NSString *message = [jsonDict objectForKey:@"message"];
             if([status isEqualToString:@"success"]){
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Create Bill" message:@"Do you want to create new bill for this customer" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
                 [alert setTag:100];
+                [alert show];
+            }
+            else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
                 [alert show];
             }
         } else {
@@ -114,9 +119,14 @@ UIAlertView *alert;
             [hud hideAnimated:YES];
             NSDictionary *jsonDict = (NSDictionary *) responseObject;
             NSString *status = [jsonDict objectForKey:@"status"];
+            NSString *message = [jsonDict objectForKey:@"message"];
             if([status isEqualToString:@"success"]){
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Bill Create Successfull" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
                 [alert setTag:101];
+                [alert show];
+            }
+            else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
                 [alert show];
             }
 

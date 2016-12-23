@@ -154,12 +154,13 @@ NSMutableArray *arrService;
                 [hud hideAnimated:YES];
                 NSDictionary *jsonDict = (NSDictionary *) responseObject;
                 NSString *status = [jsonDict objectForKey:@"status"];
+                NSString *message = [jsonDict objectForKey:@"message"];
                 if([status isEqualToString:@"success"]){
                     [arrBill removeObjectAtIndex:indexPath.row];
                     [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
                 }
                 else{
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Delete Error" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
                     [alert setTag:1];
                     [alert show];
                 }

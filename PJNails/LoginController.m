@@ -72,8 +72,13 @@
             [hud hideAnimated:YES];
             NSDictionary *jsonDict = (NSDictionary *) responseObject;
             NSString *status = [jsonDict objectForKey:@"status"];
+            NSString *message = [jsonDict objectForKey:@"message"];
             if([status isEqualToString:@"success"]){
                 [self performSegueWithIdentifier:@"shop_login_success" sender:self];
+            }
+            else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                [alert show];
             }
         } else {
             NSLog(@"Error: %@, %@, %@", error, response, responseObject);
@@ -110,8 +115,13 @@
             [hud hideAnimated:YES];
             NSDictionary *jsonDict = (NSDictionary *) responseObject;
             NSString *status = [jsonDict objectForKey:@"status"];
+            NSString *message = [jsonDict objectForKey:@"message"];
             if([status isEqualToString:@"success"]){
                 [self performSegueWithIdentifier:@"shop_login_success" sender:self];
+            }
+            else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                [alert show];
             }
         } else {
             NSLog(@"Error: %@, %@, %@", error, response, responseObject);

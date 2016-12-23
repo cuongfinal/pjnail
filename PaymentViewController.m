@@ -21,6 +21,7 @@
 ServicesModel *serviceModel;
 NSMutableArray *arrayServices;
 UIBarButtonItem *addTip;
+UIAlertView *alertNoti;
 @implementation PaymentViewController
 
 - (void)viewDidLoad {
@@ -53,7 +54,7 @@ UIBarButtonItem *addTip;
     [self.addTipPopover dismissPopoverAnimated:YES];
 }
 -(void)getDetails:(NSString*)billID{
-    
+    _tempBillID = billID;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeAnnularDeterminate;
     hud.label.text = @"Loading";
@@ -116,7 +117,7 @@ UIBarButtonItem *addTip;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ServicesCell *cell = (ServicesCell *)[tableView dequeueReusableCellWithIdentifier:@"serviceCell" forIndexPath:indexPath];
-    
+    [cell.tfTip setKeyboardType:UIKeyboardTypeNumberPad];
     ServicesModel *previousModel = arrayServices[indexPath.row];
     if(indexPath.row == 0){
         previousModel = nil;
@@ -171,4 +172,101 @@ UIBarButtonItem *addTip;
 }
 */
 
+- (IBAction)tapPayment:(id)sender {
+
+}
+-(void)doTip{
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeAnnularDeterminate;
+        hud.label.text = @"Loading";
+        
+        AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        NSString *token = appDelegate.token;
+        
+        NSError *error;      // Initialize NSError
+        NSDictionary *paramsArr = @{@"tips": _lblTip.text};
+        
+        NSString *urlBillingTip = [NSString stringWithFormat: @"%@/%@?udid=%@", @BillingTip, self.tempBillID ,@"68753A44-4D6F-1226-9C60-0050E4C00067"];
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:paramsArr options:0 error:&error]; // Convert parameter to NSDATA
+        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        
+        AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]; //Intialialize AFURLSessionManager
+        
+        NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlBillingTip parameters:nil error:nil];
+        req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
+        [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [req setValue:token forHTTPHeaderField:@"Authorization"];
+        [req setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+            if (!error) {
+                [hud hideAnimated:YES];
+                NSDictionary *jsonDict = (NSDictionary *) responseObject;
+                NSString *status = [jsonDict objectForKey:@"status"];
+                NSString *message = [jsonDict objectForKey:@"message"];
+                if([status isEqualToString:@"success"]){
+                    [self doPayment];
+                }
+                else{
+                    alertNoti = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                    [alertNoti show];
+                }
+                
+            } else {
+                NSLog(@"Error: %@, %@, %@", error, response, responseObject);
+                alertNoti = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Can not Tip, Please try again" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                [alertNoti show];
+            }
+            
+        }]resume];
+}
+-(void)doPayment{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.label.text = @"Tip done, Payment now";
+    
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSString *token = appDelegate.token;
+    
+    NSError *error;      // Initialize NSError
+    NSDictionary *paramsArr = @{@"payment_type": @"1", @"receive": @"0", @"returns": @"0", @"note": @"Payment Successfully"};
+    
+    NSString *urlBillingDone = [NSString stringWithFormat: @"%@/%@?udid=%@", @BillingDone, self.tempBillID ,@"68753A44-4D6F-1226-9C60-0050E4C00067"];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:paramsArr options:0 error:&error]; // Convert parameter to NSDATA
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]; //Intialialize AFURLSessionManager
+    
+    NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlBillingDone parameters:nil error:nil];
+    req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
+    [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [req setValue:token forHTTPHeaderField:@"Authorization"];
+    [req setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        if (!error) {
+            [hud hideAnimated:YES];
+            NSDictionary *jsonDict = (NSDictionary *) responseObject;
+            NSString *status = [jsonDict objectForKey:@"status"];
+            NSString *message = [jsonDict objectForKey:@"message"];
+            if([status isEqualToString:@"success"]){
+                alertNoti = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Payment Successfull" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                [alertNoti setTag:101];
+                [alertNoti show];
+            }
+            else{
+                alertNoti = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                [alertNoti show];
+            }
+            
+        } else {
+            NSLog(@"Error: %@, %@, %@", error, response, responseObject);
+            alertNoti = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Can not Payment, Please try again" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+            [alertNoti show];
+        }
+        
+    }]resume];
+}
 @end
