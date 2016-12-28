@@ -10,6 +10,7 @@
 
 @interface CustomerModel : NSObject
 
+@property (nonatomic) NSString *customerID;
 @property (nonatomic) NSString *shops_id;
 @property (nonatomic) NSString *first_name;
 @property (nonatomic) NSString *last_name;

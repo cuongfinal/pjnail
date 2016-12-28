@@ -29,6 +29,9 @@ UIAlertView *alertNoti;
     _tbServicesList.dataSource = self;
     _tbServicesList.delegate = self;
     
+    self.btnPayment.layer.cornerRadius = 10;
+    self.btnPayment.clipsToBounds = YES;
+    
     addTip = [[UIBarButtonItem alloc] initWithTitle:@"Add Tip" style:UIBarButtonItemStylePlain target:self action:@selector(addTipButton)];
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];

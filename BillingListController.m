@@ -34,24 +34,23 @@ NSMutableArray *arrService;
     
     UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-icon.png"]
                                                                          style:UIBarButtonItemStylePlain target:revealController action:@selector(revealToggle:)];
-    UIBarButtonItem *addCustomerButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Add Customer" style:UIBarButtonItemStylePlain target:self action:@selector(addCustomer)];
-    
     self.navigationItem.leftBarButtonItem = revealButtonItem;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
-    self.navigationItem.rightBarButtonItem = addCustomerButtonItem;
     
+    UIBarButtonItem *searchButton         = [[UIBarButtonItem alloc]
+                                             initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
+                                             target:self
+                                             action:@selector(searchCustomer)];
     
-//    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-//    NSString *token = appDelegate.token;
-//    [self getBillingList:token];
+    UIBarButtonItem *addButton          = [[UIBarButtonItem alloc]
+                                            initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                            target:self action:@selector(addCustomer)];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItems =
+    [NSArray arrayWithObjects:addButton, searchButton, nil];
+
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:NO];
@@ -62,6 +61,9 @@ NSMutableArray *arrService;
 }
 -(void)addCustomer{
     [self performSegueWithIdentifier:@"add_customer" sender:self];
+}
+-(void)searchCustomer{
+    [self performSegueWithIdentifier:@"search_customer" sender:self];
 }
 -(void)getBillingList:(NSString*)token{
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];

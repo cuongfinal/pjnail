@@ -20,6 +20,9 @@ UIAlertView *alert;
     [super viewDidLoad];
     self.title = NSLocalizedString(@"Add Customer", nil);
     
+    self.btnRegister.layer.cornerRadius = 10;
+    self.btnRegister.clipsToBounds = YES;
+    
     UIDatePicker *birthDayPicker = [[UIDatePicker alloc]init];
     [birthDayPicker setDate:[NSDate date]];
     birthDayPicker.datePickerMode = UIDatePickerModeDate;
@@ -137,7 +140,6 @@ UIAlertView *alert;
         }
         
     }]resume];
-    
 }
 
 //click on alert

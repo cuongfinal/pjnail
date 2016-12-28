@@ -24,6 +24,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.swUser setOn:NO animated:YES];
+    self.btnSignIn.layer.cornerRadius = 10;
+    self.btnSignIn.clipsToBounds = YES;
     // Do any additional setup after loading the view, typically from a nib.
 }
 

@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "SWTableViewCell.h"
 
-@interface SearchCustomerViewController : UIViewController <SWTableViewCellDelegate>
+@interface SearchCustomerViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,SWTableViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *tfCustomerName;
 @property (strong, nonatomic) IBOutlet UIView *btnSearch;
 - (IBAction)tapSearch:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tbResultList;
 @property (strong, nonatomic) NSString* token;
+@property (strong, nonatomic) NSString *customerIDRegistered;
 @end

@@ -10,5 +10,7 @@
 #import "SWTableViewCell.h"
 
 @interface ResultListCell : SWTableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *lblName;
+@property (weak, nonatomic) IBOutlet UILabel *lblPhone;
 
 @end

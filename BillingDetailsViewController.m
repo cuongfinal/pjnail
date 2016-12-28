@@ -33,6 +33,9 @@ NSMutableArray *arrServices;
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     self.navigationItem.rightBarButtonItem = paymentButton;
     
+    self.btnAddService.layer.cornerRadius = 10;
+    self.btnAddService.clipsToBounds = YES;
+    
     _lblPaymentType.text = @"";
     _lblReceive.text = @"";
     _lblNote.text = @"";
