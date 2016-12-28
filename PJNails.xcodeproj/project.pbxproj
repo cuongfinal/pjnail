@@ -14,6 +14,8 @@
 		000A98771DF4A56500D9FB52 /* AddCustomer.m in Sources */ = {isa = PBXBuildFile; fileRef = 000A98761DF4A56500D9FB52 /* AddCustomer.m */; };
 		000A987B1DF5E9E100D9FB52 /* BillingListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 000A987A1DF5E9E100D9FB52 /* BillingListController.m */; };
 		000A987E1DF5EB8F00D9FB52 /* BillingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 000A987D1DF5EB8F00D9FB52 /* BillingListCell.m */; };
+		004248B91E0FBDC7001B2224 /* SearchCustomerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 004248B81E0FBDC7001B2224 /* SearchCustomerViewController.m */; };
+		004248BC1E0FC555001B2224 /* ResultListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 004248BB1E0FC555001B2224 /* ResultListCell.m */; };
 		007C3CE81DF0782400859ED5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007C3CE71DF0782400859ED5 /* SWRevealViewController.m */; };
 		007C3CEB1DF0A25E00859ED5 /* reveal-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 007C3CE91DF0A25E00859ED5 /* reveal-icon.png */; };
 		007C3CEC1DF0A25E00859ED5 /* reveal-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 007C3CEA1DF0A25E00859ED5 /* reveal-icon@2x.png */; };
@@ -95,6 +97,10 @@
 		000A987A1DF5E9E100D9FB52 /* BillingListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillingListController.m; sourceTree = "<group>"; };
 		000A987C1DF5EB8F00D9FB52 /* BillingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillingListCell.h; sourceTree = "<group>"; };
 		000A987D1DF5EB8F00D9FB52 /* BillingListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillingListCell.m; sourceTree = "<group>"; };
+		004248B71E0FBDC7001B2224 /* SearchCustomerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCustomerViewController.h; sourceTree = "<group>"; };
+		004248B81E0FBDC7001B2224 /* SearchCustomerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCustomerViewController.m; sourceTree = "<group>"; };
+		004248BA1E0FC555001B2224 /* ResultListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultListCell.h; sourceTree = "<group>"; };
+		004248BB1E0FC555001B2224 /* ResultListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultListCell.m; sourceTree = "<group>"; };
 		007C3CE61DF0782400859ED5 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
 		007C3CE71DF0782400859ED5 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
 		007C3CE91DF0A25E00859ED5 /* reveal-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reveal-icon.png"; path = "PJNails/Resource/Image/reveal-icon.png"; sourceTree = "<group>"; };
@@ -249,6 +255,10 @@
 				000A987D1DF5EB8F00D9FB52 /* BillingListCell.m */,
 				6A93E24B1DFE9D3900F1DF32 /* BillingModel.h */,
 				6A93E24C1DFE9D3900F1DF32 /* BillingModel.m */,
+				004248B71E0FBDC7001B2224 /* SearchCustomerViewController.h */,
+				004248B81E0FBDC7001B2224 /* SearchCustomerViewController.m */,
+				004248BA1E0FC555001B2224 /* ResultListCell.h */,
+				004248BB1E0FC555001B2224 /* ResultListCell.m */,
 			);
 			name = BillingList;
 			sourceTree = "<group>";
@@ -626,6 +636,8 @@
 				6A3758EC1DEECCCC001FCEE4 /* AFNetworkReachabilityManager.m in Sources */,
 				A2CB06B51CD1CE7A000F66A8 /* CustomerListController.m in Sources */,
 				A2CB06D61CD1F0E2000F66A8 /* CustomerListCell.m in Sources */,
+				004248BC1E0FC555001B2224 /* ResultListCell.m in Sources */,
+				004248B91E0FBDC7001B2224 /* SearchCustomerViewController.m in Sources */,
 				6A3758F31DEECCCC001FCEE4 /* SWLongPressGestureRecognizer.m in Sources */,
 				000A98681DF1C36000D9FB52 /* DefineClass.m in Sources */,
 				6A3758EF1DEECCCC001FCEE4 /* AFURLResponseSerialization.m in Sources */,

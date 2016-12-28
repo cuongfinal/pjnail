@@ -16,6 +16,7 @@
 
 #define CustomerList URL "api/customers"
 #define CreateCustomer URL "api/customers"
+#define SearchCustomer URL "api/customers/search?keyword="
 
 #define BillingList URL "api/billings"
 #define CreateBill URL "api/billings"
@@ -24,6 +25,7 @@
 #define BillingDone URL "api/billings/done"
 #define BillingTip URL "api/billings/tip"
 #define BillingAddServices URL "api/billings/add-services"
+
 
 #define ServicesList URL "api/services"
 #define EmployeeList URL "api/employees"

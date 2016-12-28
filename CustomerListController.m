@@ -138,11 +138,6 @@ NSMutableArray *arrPhone;
     UIImage *image = [UIImage imageNamed:@"checked-icon.png"];
     cell.lblName.text = arrName2[indexPath.row];
     cell.lblPhone.text = arrPhone[indexPath.row];
-//    if([arrStatus[indexPath.row]  isEqual: @"0"]){
-//        image = [UIImage imageNamed:@"uncheck-icon.png"];
-//    }
-//    [cell.imgStatus setImage:image];
-    
     return cell;
 }
 -(void)handleSwipeFrom:(UIGestureRecognizer *)tap{
