@@ -84,6 +84,7 @@
                 [alert show];
             }
         } else {
+            [hud hideAnimated:YES];
             NSLog(@"Error: %@, %@, %@", error, response, responseObject);
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Your username or password is incorrect" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
             [alert setTag:1];
@@ -127,6 +128,7 @@
                 [alert show];
             }
         } else {
+            [hud hideAnimated:YES];
             NSLog(@"Error: %@, %@, %@", error, response, responseObject);
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Your username or password is incorrect" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
             [alert setTag:1];

@@ -32,19 +32,10 @@ UIAlertView *alertNoti;
     self.btnPayment.layer.cornerRadius = 10;
     self.btnPayment.clipsToBounds = YES;
     
-    addTip = [[UIBarButtonItem alloc] initWithTitle:@"Add Tip" style:UIBarButtonItemStylePlain target:self action:@selector(addTipButton)];
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
-    self.navigationItem.rightBarButtonItem = addTip;
     
     // Do any additional setup after loading the view.
-}
--(void)addTipButton{
-    AddTipPopUpViewController *addTipController = [[AddTipPopUpViewController alloc] initWithNibName:@"AddTipPopUpViewController" bundle:nil];
-    addTipController.delegate = self;
-    self.addTipPopover = [[UIPopoverController alloc] initWithContentViewController:addTipController];
-    self.addTipPopover.popoverContentSize = CGSizeMake(320.0, 100.0);
-    [self.addTipPopover presentPopoverFromBarButtonItem:addTip permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -101,6 +92,7 @@ UIAlertView *alertNoti;
             
             [self.tbServicesList reloadData];
         } else {
+            [hud hideAnimated:YES];
             NSLog(@"Error: %@, %@, %@", error, response, responseObject);
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Can not get services details" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
             [alert setTag:1];
@@ -217,6 +209,7 @@ UIAlertView *alertNoti;
                 }
                 
             } else {
+                [hud hideAnimated:YES];
                 NSLog(@"Error: %@, %@, %@", error, response, responseObject);
                 alertNoti = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Can not Tip, Please try again" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
                 [alertNoti show];
@@ -265,6 +258,7 @@ UIAlertView *alertNoti;
             }
             
         } else {
+            [hud hideAnimated:YES];
             NSLog(@"Error: %@, %@, %@", error, response, responseObject);
             alertNoti = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Can not Payment, Please try again" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
             [alertNoti show];

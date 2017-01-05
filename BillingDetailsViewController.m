@@ -50,10 +50,10 @@ NSMutableArray *arrServices;
     _tbServicesList.dataSource = self;
     _tbServicesList.delegate = self;
 }
--(void)dataChangeServices:(NSString *)servicesItem employees:(NSString *)employees{
+-(void)dataChangeServices:(NSMutableArray *)servicesItem employees:(NSString *)employees{
     [self addService:servicesItem employees:employees];
 }
--(void)addService:(NSString *)servicesItem employees:(NSString *)employees{
+-(void)addService:(NSMutableArray *)servicesItem employees:(NSString *)employees{
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeAnnularDeterminate;
     hud.label.text = @"Loading";
@@ -62,11 +62,14 @@ NSMutableArray *arrServices;
     NSString *token = appDelegate.token;
     
     NSError *error;      // Initialize NSError
-    NSDictionary *paramsArr = @{@"services_id": servicesItem, @"employees_id": employees};
-    NSMutableArray *arr = [NSMutableArray arrayWithObjects:paramsArr,nil];
-    
-    NSDictionary *parameters = @{@"services": arr};
-    
+    NSDictionary *paramsArr;
+    NSDictionary *parameters;
+    NSMutableArray *arr = [[NSMutableArray alloc] init];
+    for(int i = 0; i < servicesItem.count; i++){
+        paramsArr = @{@"services_id": servicesItem[i], @"employees_id": employees};
+        [arr addObject:paramsArr];
+        parameters = @{@"services": arr};
+    }
     NSString *urlAddSv = [NSString stringWithFormat: @"%@/%@?udid=%@", @BillingAddServices, self.assignBillID, @"68753A44-4D6F-1226-9C60-0050E4C00067"];
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error]; // Convert parameter to NSDATA
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
@@ -96,6 +99,7 @@ NSMutableArray *arrServices;
             }
             
         } else {
+            [hud hideAnimated:YES];
             NSLog(@"Error: %@, %@, %@", error, response, responseObject);
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Can not create Bill, Please try again" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
             [alert show];
@@ -178,6 +182,7 @@ NSMutableArray *arrServices;
             
             [self.tbServicesList reloadData];
         } else {
+            [hud hideAnimated:YES];
             NSLog(@"Error: %@, %@, %@", error, response, responseObject);
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Can not get billing details" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
             [alert setTag:1];
@@ -261,6 +266,7 @@ NSMutableArray *arrServices;
                     [alert show];
                 }
             } else {
+                [hud hideAnimated:YES];
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Delete Services Error" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
                 [alert setTag:1];
                 [alert show];

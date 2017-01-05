@@ -97,6 +97,7 @@ NSMutableArray *arrService;
             }
             [self.tableView reloadData];
         } else {
+            [hud hideAnimated:YES];
             NSLog(@"Error: %@, %@, %@", error, response, responseObject);
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Can not get billing list" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
             [alert setTag:1];
@@ -167,6 +168,7 @@ NSMutableArray *arrService;
                     [alert show];
                 }
             } else {
+                [hud hideAnimated:YES];
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Delete Error" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
                 [alert setTag:1];
                 [alert show];

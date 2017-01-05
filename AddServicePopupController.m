@@ -19,8 +19,9 @@
 @property (nonatomic, strong) NSMutableArray *arrServiceName;
 @property (nonatomic, strong) NSMutableArray *arrEmployeesID;
 @property (nonatomic, strong) NSMutableArray *arrEmployeesName;
-@end
+@property (nonatomic, strong) NSMutableArray *arrServiceForAdd;
 
+@end
 
 @implementation AddServicePopupController
 
@@ -40,16 +41,18 @@
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     self.token = appDelegate.token;
     
+    self.arrServiceForAdd = [[NSMutableArray alloc] init];
+    
     [self getServicesList:self.token];
     [self getEmployeeList:self.token];
-
-    self.pickerServices.delegate = self;
-    self.pickerServices.dataSource = self;
-    self.pickerServices.tag = 100;
     
     self.pickerEmployee.delegate = self;
     self.pickerEmployee.dataSource = self;
     self.pickerEmployee.tag = 101;
+    
+    [self.tbListServices setEditing:YES animated:YES];
+    self.tbListServices.delegate=(id)self;
+    self.tbListServices.dataSource=(id)self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,7 +87,7 @@
                 [self.arrServicesID addObject:model.serviceID];
                 [self.arrServiceName addObject:model.service_name];
             }
-            [self.pickerServices reloadAllComponents];
+            [self.tbListServices reloadData];
         } else {
             NSLog(@"Error: %@, %@, %@", error, response, responseObject);
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Can not get Services list" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
@@ -123,6 +126,7 @@
             }
             [self.pickerEmployee reloadAllComponents];
         } else {
+            [hud hideAnimated:YES];
             NSLog(@"Error: %@, %@, %@", error, response, responseObject);
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Can not get Employee list" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
             [alert setTag:1];
@@ -131,29 +135,54 @@
     }]resume];
 }
 
+#pragma mark - Table List Services
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.arrServiceName count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    cell.textLabel.text = [self.arrServiceName objectAtIndex:indexPath.row];
+    return cell;
+}
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 3;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.arrServiceForAdd addObject:[self.arrServicesID objectAtIndex:indexPath.row]];
+}
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.arrServiceForAdd removeObject:[self.arrServicesID objectAtIndex:indexPath.row]];
+}
+
 #pragma mark - IBAction method implementation
 
 - (IBAction)done:(id)sender {
-    [self.delegate dataChangeServices:[self.arrServicesID objectAtIndex:[self.pickerServices selectedRowInComponent:0]] employees:[self.arrEmployeesID objectAtIndex:[self.pickerEmployee selectedRowInComponent:0]]];
+    [self.delegate dataChangeServices:self.arrServiceForAdd employees:[self.arrEmployeesID objectAtIndex:[self.pickerEmployee selectedRowInComponent:0]]];
 }
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;
 }
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    if(pickerView.tag == 100){
-        return self.arrServiceName.count;
-    }else{
         return self.arrEmployeesName.count;
-    }
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    if(pickerView.tag == 100){
-        return [self.arrServiceName objectAtIndex:row];
-    }else{
         return [self.arrEmployeesName objectAtIndex:row];
-    }
 }
 
 @end

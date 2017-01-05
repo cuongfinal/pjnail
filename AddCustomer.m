@@ -81,6 +81,7 @@ UIAlertView *alert;
                 [alert show];
             }
         } else {
+            [hud hideAnimated:YES];
             NSLog(@"Error: %@, %@, %@", error, response, responseObject);
             alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Can not create customer, Please try again" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
             [alert show];
@@ -99,8 +100,8 @@ UIAlertView *alert;
     NSString *token = appDelegate.token;
     
     NSError *error;      // Initialize NSError
-    NSDictionary *paramsArr = @{@"services_id": @"1", @"employees_id": @"1"};
-    NSMutableArray *arr = [NSMutableArray arrayWithObjects:paramsArr,nil];
+//    NSDictionary *paramsArr = @{@"services_id": @"1", @"employees_id": @"1"};
+    NSMutableArray *arr = [[NSMutableArray alloc] init];
     
     NSDictionary *parameters = @{@"customers_id": _customerIDRegistered, @"services": arr};
     
@@ -134,6 +135,7 @@ UIAlertView *alert;
             }
 
         } else {
+            [hud hideAnimated:YES];
             NSLog(@"Error: %@, %@, %@", error, response, responseObject);
             alert = [[UIAlertView alloc] initWithTitle:@"Alert !!!" message:@"Can not create Bill, Please try again" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
             [alert show];
