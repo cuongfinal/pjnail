@@ -38,6 +38,9 @@
 		6A39107A1E0931740088524C /* AddServicePopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3910781E0931740088524C /* AddServicePopupController.m */; };
 		6A39107B1E0931740088524C /* AddServicePopupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A3910791E0931740088524C /* AddServicePopupController.xib */; };
 		6A705F971E00EF6500BE07DE /* ServicesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A705F961E00EF6500BE07DE /* ServicesModel.m */; };
+		6A7B156D1E1E32F000F8027C /* SidebarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7B156C1E1E32F000F8027C /* SidebarTableViewController.m */; };
+		6A7B15701E1E36AD00F8027C /* bill.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A7B156E1E1E36AD00F8027C /* bill.png */; };
+		6A7B15711E1E36AD00F8027C /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A7B156F1E1E36AD00F8027C /* calendar.png */; };
 		6A93E2471DFE9B3400F1DF32 /* BillingDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A93E2461DFE9B3400F1DF32 /* BillingDetailsViewController.m */; };
 		6A93E24A1DFE9CB800F1DF32 /* BillingDetailsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A93E2491DFE9CB800F1DF32 /* BillingDetailsModel.m */; };
 		6A93E24D1DFE9D3900F1DF32 /* BillingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A93E24C1DFE9D3900F1DF32 /* BillingModel.m */; };
@@ -142,6 +145,10 @@
 		6A3910791E0931740088524C /* AddServicePopupController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddServicePopupController.xib; sourceTree = "<group>"; };
 		6A705F951E00EF6500BE07DE /* ServicesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesModel.h; sourceTree = "<group>"; };
 		6A705F961E00EF6500BE07DE /* ServicesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicesModel.m; sourceTree = "<group>"; };
+		6A7B156B1E1E32F000F8027C /* SidebarTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarTableViewController.h; sourceTree = "<group>"; };
+		6A7B156C1E1E32F000F8027C /* SidebarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarTableViewController.m; sourceTree = "<group>"; };
+		6A7B156E1E1E36AD00F8027C /* bill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bill.png; path = PJNails/Resource/Image/bill.png; sourceTree = "<group>"; };
+		6A7B156F1E1E36AD00F8027C /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calendar.png; path = PJNails/Resource/Image/calendar.png; sourceTree = "<group>"; };
 		6A93E2451DFE9B3400F1DF32 /* BillingDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillingDetailsViewController.h; sourceTree = "<group>"; };
 		6A93E2461DFE9B3400F1DF32 /* BillingDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillingDetailsViewController.m; sourceTree = "<group>"; };
 		6A93E2481DFE9CB800F1DF32 /* BillingDetailsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillingDetailsModel.h; sourceTree = "<group>"; };
@@ -293,6 +300,8 @@
 				007C3CE51DF0780000859ED5 /* SWRevealViewController */,
 				6A3758D01DEECCCC001FCEE4 /* AFNetworking */,
 				6A3758DE1DEECCCC001FCEE4 /* SWTable */,
+				6A7B156B1E1E32F000F8027C /* SidebarTableViewController.h */,
+				6A7B156C1E1E32F000F8027C /* SidebarTableViewController.m */,
 			);
 			name = Libs;
 			path = PJNails/Libs;
@@ -412,6 +421,8 @@
 		A2CB06A61CD1BA28000F66A8 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				6A7B156E1E1E36AD00F8027C /* bill.png */,
+				6A7B156F1E1E36AD00F8027C /* calendar.png */,
 				6AE343D61E01240A00CA7FC8 /* services.png */,
 				000A98731DF49AF700D9FB52 /* default-avatar.jpg */,
 				007C3CE91DF0A25E00859ED5 /* reveal-icon.png */,
@@ -591,6 +602,7 @@
 				007C3CEC1DF0A25E00859ED5 /* reveal-icon@2x.png in Resources */,
 				A2CB06BC1CD1E89D000F66A8 /* list-tabIcon.png in Resources */,
 				6A39107B1E0931740088524C /* AddServicePopupController.xib in Resources */,
+				6A7B15711E1E36AD00F8027C /* calendar.png in Resources */,
 				A2CB06971CD1B968000F66A8 /* Assets.xcassets in Resources */,
 				6AE343D71E01240A00CA7FC8 /* services.png in Resources */,
 				A2CB06F01CD1FF8F000F66A8 /* uncheck-icon.png in Resources */,
@@ -599,6 +611,7 @@
 				A2CB06BB1CD1E89D000F66A8 /* appointment-tabIcon.png in Resources */,
 				6A3910761E08EB710088524C /* AddTipPopUpViewController.xib in Resources */,
 				A2CB069B1CD1B968000F66A8 /* Info.plist in Resources */,
+				6A7B15701E1E36AD00F8027C /* bill.png in Resources */,
 				007C3CEB1DF0A25E00859ED5 /* reveal-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -624,6 +637,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A7B156D1E1E32F000F8027C /* SidebarTableViewController.m in Sources */,
 				A2CB06B21CD1C788000F66A8 /* UserMain.m in Sources */,
 				6A93E2471DFE9B3400F1DF32 /* BillingDetailsViewController.m in Sources */,
 				6A39107A1E0931740088524C /* AddServicePopupController.m in Sources */,
