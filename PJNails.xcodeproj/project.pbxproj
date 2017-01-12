@@ -38,6 +38,9 @@
 		6A39107A1E0931740088524C /* AddServicePopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3910781E0931740088524C /* AddServicePopupController.m */; };
 		6A39107B1E0931740088524C /* AddServicePopupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A3910791E0931740088524C /* AddServicePopupController.xib */; };
 		6A705F971E00EF6500BE07DE /* ServicesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A705F961E00EF6500BE07DE /* ServicesModel.m */; };
+		6A74EDEA1E24CC840007C6D0 /* BookingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A74EDE91E24CC830007C6D0 /* BookingListCell.m */; };
+		6A74EDED1E24CEEB0007C6D0 /* BookingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A74EDEC1E24CEEB0007C6D0 /* BookingModel.m */; };
+		6A7576DD1E2640CF000C02E7 /* AddServiceOnBookingPopupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A7576DC1E2640CF000C02E7 /* AddServiceOnBookingPopupController.xib */; };
 		6A7B156D1E1E32F000F8027C /* SidebarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7B156C1E1E32F000F8027C /* SidebarTableViewController.m */; };
 		6A7B15701E1E36AD00F8027C /* bill.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A7B156E1E1E36AD00F8027C /* bill.png */; };
 		6A7B15711E1E36AD00F8027C /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A7B156F1E1E36AD00F8027C /* calendar.png */; };
@@ -48,7 +51,7 @@
 		6AE343D51E0121B500CA7FC8 /* BillingDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE343D41E0121B500CA7FC8 /* BillingDetailsCell.m */; };
 		6AE343D71E01240A00CA7FC8 /* services.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE343D61E01240A00CA7FC8 /* services.png */; };
 		A2972AC41CDAE729004051D1 /* CustomerRegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2972AC31CDAE729004051D1 /* CustomerRegisterController.m */; };
-		A2972AC81CDB2CCA004051D1 /* CustomerAppointmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2972AC71CDB2CCA004051D1 /* CustomerAppointmentController.m */; };
+		A2972AC81CDB2CCA004051D1 /* BookingListController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2972AC71CDB2CCA004051D1 /* BookingListController.m */; };
 		A2CB06961CD1B968000F66A8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CB068B1CD1B968000F66A8 /* AppDelegate.m */; };
 		A2CB06971CD1B968000F66A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2CB068C1CD1B968000F66A8 /* Assets.xcassets */; };
 		A2CB069B1CD1B968000F66A8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2CB06911CD1B968000F66A8 /* Info.plist */; };
@@ -145,6 +148,11 @@
 		6A3910791E0931740088524C /* AddServicePopupController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddServicePopupController.xib; sourceTree = "<group>"; };
 		6A705F951E00EF6500BE07DE /* ServicesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesModel.h; sourceTree = "<group>"; };
 		6A705F961E00EF6500BE07DE /* ServicesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicesModel.m; sourceTree = "<group>"; };
+		6A74EDE81E24CC830007C6D0 /* BookingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingListCell.h; sourceTree = "<group>"; };
+		6A74EDE91E24CC830007C6D0 /* BookingListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingListCell.m; sourceTree = "<group>"; };
+		6A74EDEB1E24CEEB0007C6D0 /* BookingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingModel.h; sourceTree = "<group>"; };
+		6A74EDEC1E24CEEB0007C6D0 /* BookingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingModel.m; sourceTree = "<group>"; };
+		6A7576DC1E2640CF000C02E7 /* AddServiceOnBookingPopupController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddServiceOnBookingPopupController.xib; sourceTree = "<group>"; };
 		6A7B156B1E1E32F000F8027C /* SidebarTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarTableViewController.h; sourceTree = "<group>"; };
 		6A7B156C1E1E32F000F8027C /* SidebarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarTableViewController.m; sourceTree = "<group>"; };
 		6A7B156E1E1E36AD00F8027C /* bill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bill.png; path = PJNails/Resource/Image/bill.png; sourceTree = "<group>"; };
@@ -162,8 +170,8 @@
 		6AE343D61E01240A00CA7FC8 /* services.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = services.png; path = PJNails/Resource/Image/services.png; sourceTree = "<group>"; };
 		A2972AC21CDAE729004051D1 /* CustomerRegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerRegisterController.h; sourceTree = "<group>"; };
 		A2972AC31CDAE729004051D1 /* CustomerRegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerRegisterController.m; sourceTree = "<group>"; };
-		A2972AC61CDB2CCA004051D1 /* CustomerAppointmentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerAppointmentController.h; sourceTree = "<group>"; };
-		A2972AC71CDB2CCA004051D1 /* CustomerAppointmentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerAppointmentController.m; sourceTree = "<group>"; };
+		A2972AC61CDB2CCA004051D1 /* BookingListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingListController.h; sourceTree = "<group>"; };
+		A2972AC71CDB2CCA004051D1 /* BookingListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingListController.m; sourceTree = "<group>"; };
 		A2CB068A1CD1B968000F66A8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = PJNails/AppDelegate.h; sourceTree = "<group>"; };
 		A2CB068B1CD1B968000F66A8 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = PJNails/AppDelegate.m; sourceTree = "<group>"; };
 		A2CB068C1CD1B968000F66A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = PJNails/Assets.xcassets; sourceTree = "<group>"; };
@@ -233,7 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				000A98691DF1C37600D9FB52 /* Login */,
-				A2972AC51CDB2CB3004051D1 /* CustomerAppointment */,
+				A2972AC51CDB2CB3004051D1 /* BookingList */,
 				A2972AC11CDAE286004051D1 /* CustomerRegister */,
 				A2CB06D71CD1F0F3000F66A8 /* CustomerList */,
 				000A986F1DF4531500D9FB52 /* CustomerDetails */,
@@ -349,9 +357,10 @@
 		6A93E2441DFE90B700F1DF32 /* BillingDetails */ = {
 			isa = PBXGroup;
 			children = (
+				6A7576DC1E2640CF000C02E7 /* AddServiceOnBookingPopupController.xib */,
+				6A3910791E0931740088524C /* AddServicePopupController.xib */,
 				6A3910771E0931740088524C /* AddServicePopupController.h */,
 				6A3910781E0931740088524C /* AddServicePopupController.m */,
-				6A3910791E0931740088524C /* AddServicePopupController.xib */,
 				6A93E2451DFE9B3400F1DF32 /* BillingDetailsViewController.h */,
 				6A93E2461DFE9B3400F1DF32 /* BillingDetailsViewController.m */,
 				6A93E2481DFE9CB800F1DF32 /* BillingDetailsModel.h */,
@@ -382,13 +391,17 @@
 			name = CustomerRegister;
 			sourceTree = "<group>";
 		};
-		A2972AC51CDB2CB3004051D1 /* CustomerAppointment */ = {
+		A2972AC51CDB2CB3004051D1 /* BookingList */ = {
 			isa = PBXGroup;
 			children = (
-				A2972AC61CDB2CCA004051D1 /* CustomerAppointmentController.h */,
-				A2972AC71CDB2CCA004051D1 /* CustomerAppointmentController.m */,
+				A2972AC61CDB2CCA004051D1 /* BookingListController.h */,
+				A2972AC71CDB2CCA004051D1 /* BookingListController.m */,
+				6A74EDE81E24CC830007C6D0 /* BookingListCell.h */,
+				6A74EDE91E24CC830007C6D0 /* BookingListCell.m */,
+				6A74EDEB1E24CEEB0007C6D0 /* BookingModel.h */,
+				6A74EDEC1E24CEEB0007C6D0 /* BookingModel.m */,
 			);
-			name = CustomerAppointment;
+			name = BookingList;
 			sourceTree = "<group>";
 		};
 		A2CB06891CD1B95B000F66A8 /* PJNails */ = {
@@ -609,6 +622,7 @@
 				A2CB06BD1CD1E89D000F66A8 /* register-tabIcon.png in Resources */,
 				A2CB06BF1CD1ECA6000F66A8 /* user-icon.png in Resources */,
 				A2CB06BB1CD1E89D000F66A8 /* appointment-tabIcon.png in Resources */,
+				6A7576DD1E2640CF000C02E7 /* AddServiceOnBookingPopupController.xib in Resources */,
 				6A3910761E08EB710088524C /* AddTipPopUpViewController.xib in Resources */,
 				A2CB069B1CD1B968000F66A8 /* Info.plist in Resources */,
 				6A7B15701E1E36AD00F8027C /* bill.png in Resources */,
@@ -641,7 +655,7 @@
 				A2CB06B21CD1C788000F66A8 /* UserMain.m in Sources */,
 				6A93E2471DFE9B3400F1DF32 /* BillingDetailsViewController.m in Sources */,
 				6A39107A1E0931740088524C /* AddServicePopupController.m in Sources */,
-				A2972AC81CDB2CCA004051D1 /* CustomerAppointmentController.m in Sources */,
+				A2972AC81CDB2CCA004051D1 /* BookingListController.m in Sources */,
 				000A98721DF4535A00D9FB52 /* CustomerDetailsController.m in Sources */,
 				6AD1C4251E02A36E007178DB /* MBProgressHUD.m in Sources */,
 				A2972AC41CDAE729004051D1 /* CustomerRegisterController.m in Sources */,
@@ -654,6 +668,7 @@
 				004248B91E0FBDC7001B2224 /* SearchCustomerViewController.m in Sources */,
 				6A3758F31DEECCCC001FCEE4 /* SWLongPressGestureRecognizer.m in Sources */,
 				000A98681DF1C36000D9FB52 /* DefineClass.m in Sources */,
+				6A74EDED1E24CEEB0007C6D0 /* BookingModel.m in Sources */,
 				6A3758EF1DEECCCC001FCEE4 /* AFURLResponseSerialization.m in Sources */,
 				000A986E1DF3D81800D9FB52 /* CustomerModel.m in Sources */,
 				6A3758F21DEECCCC001FCEE4 /* SWCellScrollView.m in Sources */,
@@ -665,6 +680,7 @@
 				6A3758ED1DEECCCC001FCEE4 /* AFSecurityPolicy.m in Sources */,
 				6A3758F41DEECCCC001FCEE4 /* SWTableViewCell.m in Sources */,
 				6A3910751E08EB710088524C /* AddTipPopUpViewController.m in Sources */,
+				6A74EDEA1E24CC840007C6D0 /* BookingListCell.m in Sources */,
 				007C3CE81DF0782400859ED5 /* SWRevealViewController.m in Sources */,
 				6AE343D51E0121B500CA7FC8 /* BillingDetailsCell.m in Sources */,
 				A2CB069C1CD1B968000F66A8 /* main.m in Sources */,

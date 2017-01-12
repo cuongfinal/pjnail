@@ -122,7 +122,10 @@ NSMutableArray *arrServices;
 }
 
 - (IBAction)tapAdd:(id)sender {
-    AddServicePopupController *addServicesController = [[AddServicePopupController alloc] initWithNibName:@"AddServicePopupController" bundle:nil];
+    UITableViewController *previousController = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
+    UIViewController *currentController = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-1];
+    AddServicePopupController *addServicesController = [[AddServicePopupController alloc] initWithNibName:@"AddServicePopupController" bundle:nil previousController: previousController currentController:currentController];
+    
     addServicesController.delegate = self;
     self.addServicesPopover = [[UIPopoverController alloc] initWithContentViewController:addServicesController];
     self.addServicesPopover.popoverContentSize = CGSizeMake(505.0, 505.0);

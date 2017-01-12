@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddServicePopupController.h"
 
-@interface AddCustomer : UIViewController<UITextFieldDelegate, UIAlertViewDelegate>
+@interface AddCustomer : UIViewController<UITextFieldDelegate, UIAlertViewDelegate,AddServicePopupControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *btnRegister;
 @property (weak, nonatomic) IBOutlet UITextField *txtBirthday;
 @property (weak, nonatomic) IBOutlet UITextField *txtFirstName;
@@ -18,6 +19,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtEmail;
 @property (weak, nonatomic) IBOutlet UISwitch *swFavorite;
 @property (weak, nonatomic) IBOutlet UITextField *txtLastVisit;
+@property (strong, nonatomic) IBOutlet UIView *btnSelectServices;
+- (IBAction)tapServices:(id)sender;
+@property (nonatomic, strong) UIPopoverController *addServicesPopover;
 @property (weak, nonatomic) IBOutlet UITextField *txtServices;
 @property (strong, nonatomic) NSString *customerIDRegistered;
 

@@ -13,5 +13,6 @@
 @property (nonatomic) NSString *billID;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *service;
+@property (nonatomic) NSString *note;
 
 @end

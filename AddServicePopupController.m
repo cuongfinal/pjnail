@@ -13,6 +13,10 @@
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
 #import "ServicesModel.h"
+#import "BillingDetailsViewController.h"
+#import "SearchCustomerViewController.h"
+#import "BillingListController.h"
+#import "BookingListController.h"
 @interface AddServicePopupController ()
 
 @property (nonatomic, strong) NSMutableArray *arrServicesID;
@@ -23,10 +27,15 @@
 
 @end
 
+NSString *strCurrentController;
+NSString *strPreviousController;
+
 @implementation AddServicePopupController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil previousController:(UITableViewController*)previousController currentController:(UIViewController*)currentController
 {
+    self.previousController = previousController;
+    self.currentController = currentController;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -41,10 +50,21 @@
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     self.token = appDelegate.token;
     
+    strCurrentController = NSStringFromClass([self.currentController class]);
+    strPreviousController = NSStringFromClass([self.previousController class]);
+    
     self.arrServiceForAdd = [[NSMutableArray alloc] init];
     
-    [self getServicesList:self.token];
-    [self getEmployeeList:self.token];
+    if([strPreviousController isEqualToString:@"BookingListController"] && [strCurrentController isEqualToString:@"SearchCustomerViewController"]){
+        [self getServicesList:self.token];
+        [self.pickerEmployee setHidden:YES];
+        [_lblEmployee setHidden:YES];
+    }
+    else {
+        [self getServicesList:self.token];
+        [self getEmployeeList:self.token];
+        [_lblEmployee setHidden:NO];
+    }
     
     self.pickerEmployee.delegate = self;
     self.pickerEmployee.dataSource = self;
@@ -171,7 +191,12 @@
 #pragma mark - IBAction method implementation
 
 - (IBAction)done:(id)sender {
-    [self.delegate dataChangeServices:self.arrServiceForAdd employees:[self.arrEmployeesID objectAtIndex:[self.pickerEmployee selectedRowInComponent:0]]];
+    if([strPreviousController isEqualToString:@"BookingListController"] && [strCurrentController isEqualToString:@"SearchCustomerViewController"]){
+        [self.delegate dataChangeServicesForBooking:self.arrServiceForAdd];
+    }
+    else{
+        [self.delegate dataChangeServices:self.arrServiceForAdd employees:[self.arrEmployeesID objectAtIndex:[self.pickerEmployee selectedRowInComponent:0]]];
+    }
 }
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{

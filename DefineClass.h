@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define URL "http://1e843432.ngrok.io/"
+#define URL "http://259970a7.ngrok.io/"
 #define GetAccessToken URL "api/api-users/token"
 #define ShopLogin URL "api/shops/login"
 #define UserLogin URL "api/users/login"
@@ -26,6 +26,8 @@
 #define BillingTip URL "api/billings/tip"
 #define BillingAddServices URL "api/billings/add-services"
 
+
+#define BookingList URL "api/bookings"
 
 #define ServicesList URL "api/services"
 #define EmployeeList URL "api/employees"
